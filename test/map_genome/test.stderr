@@ -1,0 +1,12 @@
+[M::mm_idx_gen::1.649*1.00] collected minimizers
+[M::mm_idx_gen::1.991*1.51] sorted minimizers
+[M::main::1.991*1.51] loaded/built the index for 1 target sequence(s)
+[M::mm_mapopt_update::2.170*1.47] mid_occ = 295
+[M::mm_idx_stat] kmer size: 14; skip: 5; is_hpc: 0; #seq: 1
+[M::mm_idx_stat::2.288*1.45] distinct minimizers: 7719919 (77.83% are singletons); average occurrences: 1.727; average spacing: 3.812; total length: 50818468
+[M::worker_pipeline::2.474*1.60] mapped 445 sequences
+[M::main] Version: 2.26-r1175
+[M::main] CMD: minimap2 -t 4 -a -x splice -ub -k14 --secondary=no genome.fa test.fastq.gz
+[M::main] Real time: 2.491 sec; CPU: 3.983 sec; Peak RSS: 0.621 GB
+3.52user 0.47system 0:02.52elapsed 158%CPU (0avgtext+0avgdata 651236maxresident)k
+0inputs+8outputs (0major+236463minor)pagefaults 0swaps

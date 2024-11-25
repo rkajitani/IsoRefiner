@@ -1,0 +1,23 @@
+Note: gmap.avx512 does not exist.  For faster speed, may want to compile package on an AVX512 machine
+Note: gmap.avx2 does not exist.  For faster speed, may want to compile package on an AVX2 machine
+GMAP version 2023-07-20 called with args: gmap.sse42 -D . -d genome_gmap -t 4 -f 2 -n 1 --no-chimeras --min-trimmed-coverage=0.5 --min-identity=0.95 --max-intronlength-middle=100000 ./rnabloom_out/rnabloom.transcripts.fa
+Note: -n 1 will not report chimeric alignments.  If you want a single alignment plus chimeras, use -n 0 instead.
+Checking compiler assumptions for SSE2: 6B8B4567 327B23C6 xor=59F066A1
+Checking compiler assumptions for SSE4.1: -103 -58 max=198 => compiler zero extends
+Checking compiler options for SSE4.2: 6B8B4567 __builtin_clz=1 __builtin_ctz=0 _mm_popcnt_u32=17 __builtin_popcount=17 
+Finished checking compiler assumptions
+Pre-loading compressed genome (oligos)......done (19,056,944 bytes, 4653 pages, 0.00 sec)
+Looking for genome genome_gmap in directory ./genome_gmap
+Looking for index files in directory ./genome_gmap
+  Pointers file is genome_gmap.ref153offsets64meta
+  Offsets file is genome_gmap.ref153offsets64strm
+  Positions file is genome_gmap.ref153positions
+Offsets compression type: bitpack64
+Allocating memory for ref offset pointers, kmer 15, interval 3...done (134,217,744 bytes, 0.08 sec)
+Allocating memory for ref offsets, kmer 15, interval 3...done (94,189,504 bytes, 0.06 sec)
+Pre-loading ref positions, kmer 15, interval 3......done (52,212,140 bytes, 0.00 sec)
+Starting alignment
+No paths found for rb_3
+Processed 6 queries in 0.09 seconds (66.67 queries/sec)
+0.15user 0.20system 0:00.26elapsed 133%CPU (0avgtext+0avgdata 306052maxresident)k
+0inputs+24outputs (0major+86377minor)pagefaults 0swaps

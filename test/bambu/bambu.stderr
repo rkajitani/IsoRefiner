@@ -1,0 +1,38 @@
+Warning message:
+package ‘matrixStats’ was built under R version 4.3.3 
+If you are running bambu multiple times we recommend processing your annotation file first with annotations = prepareAnnotations(gtf.file)
+WARNING - If you change the number of cores (ncore) between Bambu runs and there is no progress please restart your R session to resolve the issue that originates from the XGboost package.
+--- Start generating read class files ---
+Detected 1 warnings across the samples during read class construction. Access warnings with metadata(bambuOutput)$warnings
+--- Start extending annotations ---
+WARNING - Less than 50 TRUE or FALSE read classes for NDR precision stabilization.
+NDR will be approximated as: (1 - Transcript Model Prediction Score)
+Using a novel discovery rate (NDR) of: 0.333
+--- Start isoform quantification ---
+--- Finished running Bambu ---
+Warning messages:
+1: In findHighConfidenceJunctions(junctions = uniqueJunctions, junctionModel = junctionModel,  :
+  no junction correction as no high confidence reference junctions found
+2: There was 1 warning in `summarise()`.
+ℹ In argument: `intersectWidth = max(intersectWidth)`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf 
+3: Returning more (or less) than 1 row per `summarise()` group was deprecated in
+dplyr 1.1.0.
+ℹ Please use `reframe()` instead.
+ℹ When switching from `summarise()` to `reframe()`, remember that `reframe()`
+  always returns an ungrouped data frame and adjust accordingly.
+ℹ The deprecated feature was likely used in the bambu package.
+  Please report the issue to the authors. 
+4: There was 1 warning in `summarise()`.
+ℹ In argument: `intersectWidth = max(intersectWidth)`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf 
+5: There was 1 warning in `summarise()`.
+ℹ In argument: `intersectWidth = max(intersectWidth)`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf 
+6: In predict.lm(lm(NDRscores ~ poly(score, 3, raw = TRUE)), newdata = data.frame(score = baseline)) :
+  prediction from rank-deficient fit; attr(*, "non-estim") has doubtful cases
+23.17user 2.92system 0:23.90elapsed 109%CPU (0avgtext+0avgdata 1012192maxresident)k
+64368inputs+168outputs (790major+269094minor)pagefaults 0swaps

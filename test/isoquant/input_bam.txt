@@ -1,0 +1,2 @@
+#isoquant
+../map_genome/test.sorted.bam:test

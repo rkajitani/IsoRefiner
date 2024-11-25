@@ -1,0 +1,40 @@
+2024-11-25 12:09:33,808 - INFO - Running IsoQuant version 3.3.1
+2024-11-25 12:09:33,831 - INFO - Novel unspliced transcripts will not be reported, set --report_novel_unspliced true to discover them
+2024-11-25 12:09:33,831 - INFO -  === IsoQuant pipeline started === 
+2024-11-25 12:09:33,833 - INFO - Converting gene annotation file to .db format (takes a while)...
+2024-11-25 12:09:33,901 - INFO - Gene database written to /mnt/fsx/user/kajitt3k/git/IsoRefiner/test/isoquant/isoquant_out/annot.db
+2024-11-25 12:09:33,901 - INFO - Provide this database next time to avoid excessive conversion
+2024-11-25 12:09:33,904 - INFO - Loading gene database from /mnt/fsx/user/kajitt3k/git/IsoRefiner/test/isoquant/isoquant_out/annot.db
+2024-11-25 12:09:33,911 - INFO - Loading reference genome from /mnt/fsx/user/kajitt3k/git/IsoRefiner/test/isoquant/genome.fa
+2024-11-25 12:09:34,398 - INFO - Processing 1 sample
+2024-11-25 12:09:34,398 - INFO - Processing sample isoquant
+2024-11-25 12:09:34,398 - INFO - Sample has 1 BAM file: ../map_genome/test.sorted.bam
+2024-11-25 12:09:34,400 - INFO - Collecting read alignments
+2024-11-25 12:09:34,429 - INFO - Processing chromosome chr22
+2024-11-25 12:09:34,740 - INFO - Finished processing chromosome chr22
+2024-11-25 12:09:34,748 - INFO - Resolving multimappers
+2024-11-25 12:09:34,753 - INFO - Finishing read assignment, total assignments 422, polyA percentage 0.0
+2024-11-25 12:09:34,753 - INFO - Read assignments files saved to isoquant_out/isoquant/aux/isoquant.save*. 
+2024-11-25 12:09:34,753 - INFO - To keep these intermediate files for debug purposes use --keep_tmp flag
+2024-11-25 12:09:34,755 - INFO - Total alignments processed: 422, polyA tail detected in 0 (0.0%)
+2024-11-25 12:09:34,755 - INFO - Processing assigned reads isoquant
+2024-11-25 12:09:34,777 - INFO - Processing chromosome chr22
+2024-11-25 12:09:34,799 - INFO - Loading read assignments from isoquant_out/isoquant/aux/isoquant.save_chr22
+2024-11-25 12:09:34,910 - INFO - Finished processing chromosome chr22
+2024-11-25 12:09:34,935 - INFO - Transcript model file isoquant_out/isoquant/isoquant.transcript_models.gtf
+2024-11-25 12:09:34,939 - INFO - Extended annotation is saved to isoquant_out/isoquant/isoquant.extended_annotation.gtf
+2024-11-25 12:09:34,939 - INFO - Transcript model statistics
+2024-11-25 12:09:34,939 - INFO - known: 4
+2024-11-25 12:09:34,939 - INFO - novel_in_catalog: 1
+2024-11-25 12:09:34,939 - INFO - novel_not_in_catalog: 1
+2024-11-25 12:09:34,975 - INFO - Gene counts are stored in isoquant_out/isoquant/isoquant.gene_counts.tsv
+2024-11-25 12:09:34,975 - INFO - Transcript counts are stored in isoquant_out/isoquant/isoquant.transcript_counts.tsv
+2024-11-25 12:09:34,975 - INFO - Read assignments are stored in isoquant_out/isoquant/isoquant.read_assignments.tsv
+2024-11-25 12:09:34,975 - INFO - Read assignment statistics
+2024-11-25 12:09:34,975 - INFO - ambiguous: 51
+2024-11-25 12:09:34,975 - INFO - inconsistent: 69
+2024-11-25 12:09:34,975 - INFO - unique: 296
+2024-11-25 12:09:34,975 - INFO - unique_minor_difference: 6
+2024-11-25 12:09:34,985 - INFO - Processed sample isoquant
+2024-11-25 12:09:34,985 - INFO - Processed 1 sample
+2024-11-25 12:09:34,985 - INFO -  === IsoQuant pipeline finished === 

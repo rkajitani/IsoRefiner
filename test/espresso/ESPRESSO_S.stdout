@@ -1,0 +1,13 @@
+../map_genome/test.sorted.bam	0
+ Work directory espresso_work does not exist. Make it by myself
+[Mon Nov 25 14:16:38 2024] Loading reference
+[Mon Nov 25 14:16:39 2024] Loading annotation
+Worker 0 begins to scan: 
+ ../map_genome/test.sorted.bam
+Worker 0 finished reporting.
+[Mon Nov 25 14:16:44 2024] Re-cluster all reads
+[Mon Nov 25 14:16:44 2024] Summarizing annotated splice junctions for each read group
+Worker 0 begins to scan: 
+ ../map_genome/test.sorted.bam
+Worker 0 finished reporting.
+[Mon Nov 25 14:16:50 2024] ESPRESSO_S finished its work.

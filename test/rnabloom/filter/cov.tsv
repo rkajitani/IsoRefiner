@@ -1,0 +1,6 @@
+#rname	startpos	endpos	numreads	covbases	coverage	meandepth	meanbaseq	meanmapq
+rb_5.mrna1	1	3631	59	3631	100	21.2691	12.6	43.4
+rb_4.mrna1	1	473	200	467	98.7315	108.279	12.6	49.1
+rb_6.mrna1	1	405	1	369	91.1111	0.911111	12.6	60
+rb_1.mrna1	1	1767	38	1767	100	27.9977	12.6	60
+rb_2.mrna1	1	499	53	499	100	50.2806	12.7	60

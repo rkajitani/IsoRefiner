@@ -1,0 +1,85 @@
+RNA-Bloom v2.0.1
+args: [-t, 4, -outdir, rnabloom_out, -long, test.fastq.gz]
+
+name:   rnabloom
+outdir: rnabloom_out
+
+Turning on option `-ntcard` to count k-mers
+
+K-mer counting with ntCard...
+Running command: `ntcard -t 4 -k 25 -c 65535 -p rnabloom_out/rnabloom @rnabloom_out/rnabloom.ntcard.readslist.txt`...
+Parsing histogram file `rnabloom_out/rnabloom_k25.hist`...
+Unique k-mers (k=25):     255,297
+Unique k-mers (k=25,c>1): 10,815
+K-mer counting completed in 3.739s
+
+Bloom filters          Memory (GB)
+====================================
+de Bruijn graph:       5.641674E-4
+k-mer counting:        1.911968E-4
+====================================
+Total:                 7.553642E-4
+
+> Stage 1: Construct graph from reads (k=25)
+Parsing `test.fastq.gz`...
+Parsed 445 sequences in 0.053s
+DBG Bloom filter FPR:                 0.0295 %
+Counting Bloom filter FPR:            0.226 %
+> Stage 1 completed in 0.07s
+
+> Stage 2: Correct long reads for "rnabloom"
+Parsing `test.fastq.gz`...
+Corrected Read Lengths Sampling Distribution (n=443)
+	min	q1	med	q3	max
+	166	365	461	695	3823
+Parsed 445 sequences.
+	Kept:      443	(99.6 %)
+	Discarded: 2	(0.449 %)
+Corrected reads in 0.539s
+Extracting seed sequences...
+strobemers: n=3, k=11, wMin=12, wMax=61, depth=3
+Bloom filter FPR:	16.1 %
+before: 443	after: 324 (73.1 %)
+too short: 0
+Extraction completed in 0.218s
+> Stage 2 completed in 0.759s
+
+> Stage 3: Assemble long reads for "rnabloom"
+Overlapping sequences...
+Parsed 11,183 overlap records in 1.187s
+total reads:    324
+ - unique:      9	(2.78 %)
+   - multi-seg: 0
+Unique reads extracted in 0.015s
+Overlapping sequences...
+Parsed 6 overlap records in 0.009s
+contained reads: 2
+before: 9	after: 7
+Laid out paths in 0.004s
+Mapping sequences...
+Mapping completed in 0.077s
+Polishing sequences...
+Polishing completed in 0.154s
+Overlapping sequences...
+Parsed 4 overlap records in 0.012s
+contained reads: 1
+dovetail reads:  2
+G: |V|=4 |E|=2
+Removing redundant vertexes...
+G: |V|=4 |E|=2
+Removing transitive edges...
+G: |V|=4 |E|=2
+Pruning graph with polyA information...
+G: |V|=4 |E|=2
+Tallying read counts...
+Counts tallied for 6 sequences in 0.003s
+Pruning graph with read count information...
+Supported edges: 0
+G: |V|=4 |E|=0
+Extracting vertex sequences...
+Sequences extracted in 0.005s
+Extracting paths...
+before: 7	after: 6
+Laid out paths in 0.007s
+> Stage 3 completed in 1.593s
+Total runtime: 6.294s

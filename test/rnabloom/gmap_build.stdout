@@ -1,0 +1,7 @@
+Opening file ../genome_chr22.fa
+  Contig chr22: concatenated at chromosome end: chr22:1..50818468 (length = 50818468 nt)
+
+============================================================
+Contig mapping information has been written to file ./genome_gmap.coords.
+============================================================
+No alternate scaffolds observed

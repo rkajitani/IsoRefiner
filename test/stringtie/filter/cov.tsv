@@ -1,0 +1,6 @@
+#rname	startpos	endpos	numreads	covbases	coverage	meandepth	meanbaseq	meanmapq
+STRG.1.1	1	2683	37	2395	89.2657	7.42713	12.7	29.1
+STRG.1.2	1	467	197	467	100	108.499	12.6	49.7
+STRG.2.1	1	504	2	492	97.619	1.81151	12.4	60
+STRG.3.1	1	1770	38	1770	100	27.952	12.6	60
+STRG.3.2	1	397	44	397	100	42.2695	12.6	60

@@ -1,0 +1,28 @@
+# ESPRESSO version: 1.5.0, source code commit: unknown
+chr22	annotated_isoform	transcript	38687924	38689323	.	-	.	transcript_id "ENST00000482442.1"; gene_id "ENSG00000100221.11";
+chr22	annotated_isoform	exon	38687924	38688001	.	-	.	transcript_id "ENST00000482442.1"; gene_id "ENSG00000100221.11"; exon_number "1";
+chr22	annotated_isoform	exon	38688935	38689323	.	-	.	transcript_id "ENST00000482442.1"; gene_id "ENSG00000100221.11"; exon_number "2";
+chr22	annotated_isoform	transcript	38700276	38701418	.	-	.	transcript_id "ENST00000490169.1"; gene_id "ENSG00000100221.11";
+chr22	annotated_isoform	exon	38700276	38700618	.	-	.	transcript_id "ENST00000490169.1"; gene_id "ENSG00000100221.11"; exon_number "1";
+chr22	annotated_isoform	exon	38701257	38701418	.	-	.	transcript_id "ENST00000490169.1"; gene_id "ENSG00000100221.11"; exon_number "2";
+chr22	novel_isoform	transcript	38686029	38700465	.	-	.	transcript_id "ESPRESSO:chr22:0:0"; gene_id "ENSG00000100221.11";
+chr22	novel_isoform	exon	38686029	38688001	.	-	.	transcript_id "ESPRESSO:chr22:0:0"; gene_id "ENSG00000100221.11"; exon_number "1";
+chr22	novel_isoform	exon	38688935	38689129	.	-	.	transcript_id "ESPRESSO:chr22:0:0"; gene_id "ENSG00000100221.11"; exon_number "2";
+chr22	novel_isoform	exon	38689296	38689424	.	-	.	transcript_id "ESPRESSO:chr22:0:0"; gene_id "ENSG00000100221.11"; exon_number "3";
+chr22	novel_isoform	exon	38699803	38700465	.	-	.	transcript_id "ESPRESSO:chr22:0:0"; gene_id "ENSG00000100221.11"; exon_number "4";
+chr22	annotated_isoform	transcript	50252903	50261716	.	-	.	transcript_id "ENST00000622558.4"; gene_id "ENSG00000188130.14";
+chr22	annotated_isoform	exon	50252903	50253480	.	-	.	transcript_id "ENST00000622558.4"; gene_id "ENSG00000188130.14"; exon_number "1";
+chr22	annotated_isoform	exon	50255197	50255370	.	-	.	transcript_id "ENST00000622558.4"; gene_id "ENSG00000188130.14"; exon_number "2";
+chr22	annotated_isoform	exon	50255453	50255531	.	-	.	transcript_id "ENST00000622558.4"; gene_id "ENSG00000188130.14"; exon_number "3";
+chr22	annotated_isoform	exon	50255615	50255694	.	-	.	transcript_id "ENST00000622558.4"; gene_id "ENSG00000188130.14"; exon_number "4";
+chr22	annotated_isoform	exon	50255810	50255881	.	-	.	transcript_id "ENST00000622558.4"; gene_id "ENSG00000188130.14"; exon_number "5";
+chr22	annotated_isoform	exon	50256085	50256199	.	-	.	transcript_id "ENST00000622558.4"; gene_id "ENSG00000188130.14"; exon_number "6";
+chr22	annotated_isoform	exon	50256599	50256646	.	-	.	transcript_id "ENST00000622558.4"; gene_id "ENSG00000188130.14"; exon_number "7";
+chr22	annotated_isoform	exon	50257082	50257193	.	-	.	transcript_id "ENST00000622558.4"; gene_id "ENSG00000188130.14"; exon_number "8";
+chr22	annotated_isoform	exon	50258243	50258301	.	-	.	transcript_id "ENST00000622558.4"; gene_id "ENSG00000188130.14"; exon_number "9";
+chr22	annotated_isoform	exon	50261167	50261296	.	-	.	transcript_id "ENST00000622558.4"; gene_id "ENSG00000188130.14"; exon_number "10";
+chr22	annotated_isoform	exon	50261385	50261716	.	-	.	transcript_id "ENST00000622558.4"; gene_id "ENSG00000188130.14"; exon_number "11";
+chr22	novel_isoform	transcript	50257564	50261169	.	-	.	transcript_id "ESPRESSO:chr22:1:0"; gene_id "ENSG00000188130.14";
+chr22	novel_isoform	exon	50257564	50257660	.	-	.	transcript_id "ESPRESSO:chr22:1:0"; gene_id "ENSG00000188130.14"; exon_number "1";
+chr22	novel_isoform	exon	50258243	50258301	.	-	.	transcript_id "ESPRESSO:chr22:1:0"; gene_id "ENSG00000188130.14"; exon_number "2";
+chr22	novel_isoform	exon	50260829	50261169	.	-	.	transcript_id "ESPRESSO:chr22:1:0"; gene_id "ENSG00000188130.14"; exon_number "3";

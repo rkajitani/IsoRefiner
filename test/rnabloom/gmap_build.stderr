@@ -1,0 +1,59 @@
+/usr/bin/time: cannot run gmap_build: No such file or directory
+Command exited with non-zero status 127
+0.00user 0.00system 0:00.00elapsed 50%CPU (0avgtext+0avgdata 984maxresident)k
+0inputs+8outputs (0major+87minor)pagefaults 0swaps
+-k flag not specified, so building main hash table with default 15-mers
+--local flag not specified, so building localdb by default
+Writing files under .
+Not sorting chromosomes.  To sort chromosomes other ways, use the -s flag.
+Creating files in directory ./genome_gmap
+Running "/mnt/fsx/user/kajitt3k/miniconda3/bin/fa_coords"        -o "./genome_gmap.coords" -f "./genome_gmap.sources"
+Running "/mnt/fsx/user/kajitt3k/miniconda3/bin/gmap_process"   -c "./genome_gmap.coords" -f "./genome_gmap.sources" | "/mnt/fsx/user/kajitt3k/miniconda3/bin/gmapindex"  -d genome_gmap -D "./genome_gmap" -A -s none
+Reading coordinates from file ./genome_gmap.coords
+Logging contig chr22 at chr22:1..50818468 in genome genome_gmap
+ => primary (linear) chromosome
+Total genomic length = 50818468 bp
+divsort == NO_SORT
+Have a total of 1 chromosomes
+Writing chromosome file ./genome_gmap/genome_gmap.chromosome
+Chromosome chr22 has universal coordinates 1..50818468
+Writing chromosome IIT file ./genome_gmap/genome_gmap.chromosome.iit
+Writing IIT file header information...coordinates require 4 bytes each...done
+Processing null division/chromosome...sorting...writing...done (1 intervals)
+Writing IIT file footer information...done
+Writing IIT file header information...coordinates require 4 bytes each...done
+Processing null division/chromosome...sorting...writing...done (1 intervals)
+Writing IIT file footer information...done
+Running "/mnt/fsx/user/kajitt3k/miniconda3/bin/gmap_process"   -c "./genome_gmap.coords" -f "./genome_gmap.sources" | "/mnt/fsx/user/kajitt3k/miniconda3/bin/gmapindex"  -d genome_gmap -D "./genome_gmap" -G
+Genome length is 50818468 nt
+Trying to allocate 4764236*4 bytes of memory...succeeded.  Building genome in memory.
+Reading coordinates from file ./genome_gmap.coords
+Writing contig chr22 to universal coordinates 1..50818468
+A total of 0 non-ACGTNX characters were seen in the genome.
+Running cat "./genome_gmap/genome_gmap.genomecomp" | "/mnt/fsx/user/kajitt3k/miniconda3/bin/gmapindex" -d genome_gmap -D "./genome_gmap" -U
+Running cat "./genome_gmap/genome_gmap.genomecomp" | "/mnt/fsx/user/kajitt3k/miniconda3/bin/gmapindex" -k 15 -q 3  -D "./genome_gmap" -d genome_gmap -N
+Counting positions in genome genome_gmap (15 bp every 3 bp), position 0
+Number of positions: 50818468 => normal-sized genome
+Number of offsets: 13053035 => pages file not required
+Running "/mnt/fsx/user/kajitt3k/miniconda3/bin/gmapindex" -k 15 -q 3  -D "./genome_gmap" -d genome_gmap -O "./genome_gmap/genome_gmap.genomecomp"
+Offset compression types: bitpack64
+Allocating 16777216*1 bytes for packsizes
+Allocating 16777216*8 bytes for bitpacks
+Indexing offsets of oligomers in genome genome_gmap (15 bp every 3 bp), position 0
+Writing 1073741825 offsets compressed via bitpack64...done
+Running "/mnt/fsx/user/kajitt3k/miniconda3/bin/gmapindex" -k 15 -q 3  -D "./genome_gmap" -d genome_gmap -P "./genome_gmap/genome_gmap.genomecomp"
+Looking for genome genome_gmap in directory ./genome_gmap
+Looking for index files in directory ./genome_gmap
+  Pointers file is genome_gmap.ref153offsets64meta
+  Offsets file is genome_gmap.ref153offsets64strm
+  Positions file is genome_gmap.ref153positions
+Expanding offsetsstrm into counters...done
+Allocating 94189504 bytes for counterstrm
+Trying to allocate 13053035*4 bytes of memory for positions...succeeded.  Building positions in memory.
+Indexing positions of oligomers in genome genome_gmap (15 bp every 3 bp), position 0
+Writing 13053035 genomic positions to file ./genome_gmap/genome_gmap.ref153positions ...
+done
+Running "/mnt/fsx/user/kajitt3k/miniconda3/bin/gmapindex"  -D "./genome_gmap" -d genome_gmap -Q "./genome_gmap/genome_gmap.genomecomp"
+Writing localdb sarrays
+30.89user 7.20system 0:55.81elapsed 68%CPU (0avgtext+0avgdata 467716maxresident)k
+111720inputs+1020848outputs (730major+558222minor)pagefaults 0swaps
