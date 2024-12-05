@@ -10,9 +10,10 @@ def main():
     
     # Filter subcommand
     parser_filter = subparsers.add_parser("filter", help="Filter transcript isoforms.", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser_filter.add_argument("input.gtf", type=str, help="Input transcript isoform structures (GTF, mandatory)")
-    parser_filter.add_argument("reads.fast(q|a)", type=str, help="Reads (FASTA or FASTQ, gzip allowed, mandatory)")
-    parser_filter.add_argument("genome.fasta", type=str, help="Reference genome (FASTA, mandatory)")
+    parser_filter.add_argument("input_gtf", type=str, help="Input transcript isoform structures (GTF, mandatory)")
+    parser_filter.add_argument("reads_fastq", type=str, help="Reads (FASTQ or FASTA, gzip allowed, mandatory)")
+    parser_filter.add_argument("genome_fasta", type=str, help="Reference genome (FASTA, mandatory)")
+    parser_filter.add_argument("out_dir", type=str, help="Directory for output and temporary files")
     parser_filter.add_argument("-t", "--threads", type=int, default=1, help="Number of threads")
     parser_filter.add_argument("--max_indel", type=int, default=20, help="Max indel for read mapping")
     parser_filter.add_argument("--max_clip", type=int, default=200, help="Max clip (unaligned) length for read mapping")
