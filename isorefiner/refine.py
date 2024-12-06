@@ -1,5 +1,5 @@
 #!/usr/bin/python
 
 
-def main():
+def main(args):
     print("TBD")
