@@ -6,7 +6,7 @@ import subprocess
 import sys
 import polars as pl
 import pysam
-from isorefiner.common import run_command
+from isorefiner.common import func_with_log, run_command
 
 logger = logging.getLogger(__name__)
 
@@ -34,7 +34,7 @@ def main(args):
         logging.basicConfig(
             filename="log.txt",
             level=logging.INFO,
-            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+            format="%(asctime)s - PID=%(process)d - %(levelname)s - %(message)s"
         )
 
         # Set input files and create symbolic links
@@ -53,7 +53,7 @@ def main(args):
         os.symlink(raw_reads_fastq, reads_fastq)
 
         # Main process
-        logger.info(f"Starting isorefiner filter (PID: {os.getpid()})")
+        logger.info(f"Starting isorefiner filter")
         run_command(f"gffread -w asm.fa -g {genome_fasta} {input_gtf}")
         run_command(f"minimap2 -ax map-ont --secondary=no -t {n_thread} asm.fa {reads_fastq} | samtools view -b -F 2308 -", stdout="raw.bam")
         run_command(f"samtools sort -@ {n_thread} -m 2G raw.bam", stdout="sorted.bam", stderr="samtools_sort.stderr")
@@ -62,6 +62,8 @@ def main(args):
         run_command(f"samtools coverage filt.bam", stdout="cov.tsv")
         filter_coverage_table("cov.tsv", "cov_depth_filt.list", min_cov, min_mean_depth)
 
+        logger.info(f"Finished isorefiner filter")
+
     except Exception as e:
         msg = f"Error: {e}, Exception class: {type(e).__name__}"
         print(msg, file=sys.stderr)
@@ -69,10 +71,8 @@ def main(args):
         sys.exit(1)
 
 
+@func_with_log
 def filter_bam(in_bam, out_bam, max_indel, max_clip, min_idt):
-    log_func_str = f'filter_bam("{in_bam}", "{out_bam}", {max_indel}, {max_clip}, {min_idt})'
-    logger.info(f"Starting {log_func_str})")
-
     with pysam.AlignmentFile(in_bam, "rb") as fin, pysam.AlignmentFile(out_bam, "wb", header=fin.header) as fout:
         for aln in fin:
             valid_flag = True
@@ -87,21 +87,15 @@ def filter_bam(in_bam, out_bam, max_indel, max_clip, min_idt):
             if valid_flag:
                 fout.write(aln)
 
-    logger.info(f"Finished {log_func_str})")
 
-
+@func_with_log
 def filter_coverage_table(in_file, out_file, min_cov, min_mean_depth):
-    log_func_str = f'filter_coverage_table("{in_file}", "{out_file}", {min_cov}, {min_mean_depth})'
-    logger.info(f"Starting {log_func_str})")
-
     df = (pl.read_csv(in_file, separator="\t")
         .select("#rname", "coverage", "meandepth")
         .filter((pl.col("coverage") >= min_cov) & (pl.col("meandepth") >= min_mean_depth))
         .select("#rname")
     )
     df.write_csv(out_file, include_header=False)
-
-    logger.info(f"Finished {log_func_str})")
 
 
 #../test/bambu/filter/cmd.sh
