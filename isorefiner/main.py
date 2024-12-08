@@ -11,8 +11,8 @@ def main():
     # Filter subcommand
     parser_filter = subparsers.add_parser("filter", help="Filter transcript isoforms.", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser_filter.add_argument("-i", "--input_gtf", type=str, required=True, help="Input transcript isoform structures (GTF, mandatory)")
-    parser_filter.add_argument("-r", "--reads_fastq", type=str, required=True, help="Reads (FASTQ or FASTA, gzip allowed, mandatory)")
-    parser_filter.add_argument("-g", "--genome_fasta", type=str, required=True, help="Reference genome (FASTA, mandatory)")
+    parser_filter.add_argument("-r", "--reads", type=str, required=True, nargs="*", help="Reads (FASTQ or FASTA, gzip allowed, mandatory)")
+    parser_filter.add_argument("-g", "--genome", type=str, required=True, help="Reference genome (FASTA, mandatory)")
     parser_filter.add_argument("-o", "--out_gtf", type=str, default="filter_out.gtf", help="Final output file name (GTF)")
     parser_filter.add_argument("-d", "--work_dir", type=str, default="filter_work", help="Working directory containing intermediate and log files")
     parser_filter.add_argument("-t", "--threads", type=int, default=1, help="Number of threads")

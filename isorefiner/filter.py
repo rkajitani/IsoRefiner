@@ -15,8 +15,8 @@ def main(args):
     try:
         # Set variables
         raw_input_gtf = os.path.abspath(args.input_gtf)
-        raw_genome_fasta = os.path.abspath(args.genome_fasta)
-        raw_reads_fastq = os.path.abspath(args.reads_fastq)
+        raw_genome_file = os.path.abspath(args.genome)
+        raw_reads_files = [os.path.abspath(_) for _ in args.reads]
         out_gtf = os.path.abspath(args.out_gtf)
         n_thread = args.threads
         max_indel = args.max_indel
@@ -41,21 +41,26 @@ def main(args):
         input_gtf = "raw.gtf"
         if os.path.lexists(input_gtf):
             input_gtf = f"raw_{os.getpid()}.gtf"
-        genome_fasta = "genome.fasta"
-        if os.path.lexists(genome_fasta):
-            genome_fasta = f"genome_{os.getpid()}.fasta"
-        reads_ext = os.path.basename(os.path.abspath(args.reads_fastq)).split(".", 1)[1]
-        reads_fastq = f"reads.{reads_ext}"
-        if os.path.lexists(reads_fastq):
-            reads_fastq = f"reads_{os.getpid()}.{reads_ext}"
         os.symlink(raw_input_gtf, input_gtf)
-        os.symlink(raw_genome_fasta, genome_fasta)
-        os.symlink(raw_reads_fastq, reads_fastq)
+
+        genome_file = "genome.fasta"
+        if os.path.lexists(genome_file):
+            genome_file = f"genome_{os.getpid()}.fasta"
+        os.symlink(raw_genome_file, genome_file)
+
+        reads_files = list()
+        for i, raw_reads_file in enumerate(raw_reads_files, start=1):
+            reads_ext = os.path.basename(raw_reads_file).split(".", 1)[1]
+            reads_file = f"reads_{i}.{reads_ext}"
+            if os.path.lexists(reads_file):
+                reads_file = f"reads_{i}_{os.getpid()}.{reads_ext}"
+            reads_files.append(reads_file)
+            os.symlink(raw_reads_file, reads_file)
 
         # Main process
         logger.info(f"Starting isorefiner filter")
-        run_command(f"gffread -w asm.fa -g {genome_fasta} {input_gtf}")
-        run_command(f"minimap2 -ax map-ont --secondary=no -t {n_thread} asm.fa {reads_fastq} | samtools view -b -F 2308 -", stdout="raw.bam")
+        run_command(f"gffread -w asm.fa -g {genome_file} {input_gtf}")
+        run_command(f"minimap2 -ax map-ont --secondary=no -t {n_thread} asm.fa {' '.join(reads_files)} | samtools view -b -F 2308 -", stdout="raw.bam")
         run_command(f"samtools sort -@ {n_thread} -m 2G raw.bam", stdout="sorted.bam", stderr="samtools_sort.stderr")
         filter_bam("sorted.bam", "filt.bam", max_indel, max_clip, min_idt)
         run_command(f"samtools index filt.bam")
