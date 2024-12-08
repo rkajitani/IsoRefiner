@@ -6,8 +6,7 @@ import re
 import subprocess
 import sys
 import polars as pl
-import pysam
-from isorefiner.common import func_with_log, run_command
+from isorefiner.common import func_with_log, run_command, filter_bam
 
 logger = logging.getLogger(__name__)
 
@@ -75,23 +74,6 @@ def main(args):
         print(msg, file=sys.stderr)
         logger.error(msg)
         sys.exit(1)
-
-
-@func_with_log
-def filter_bam(in_bam, out_bam, max_indel, max_clip, min_idt):
-    with pysam.AlignmentFile(in_bam, "rb") as fin, pysam.AlignmentFile(out_bam, "wb", header=fin.header) as fout:
-        for aln in fin:
-            valid_flag = True
-            idt = 1.0 - (aln.get_tag("NM") / aln.query_alignment_length)
-            if idt < min_idt:
-                continue
-            for cig_ope, cig_len in aln.cigartuples:
-                if (((cig_ope == 1 or cig_ope == 2) and cig_len > max_indel) or
-                    (cig_ope == 4 or cig_ope == 5) and cig_len > max_clip):
-                    valid_flag = False
-                    break
-            if valid_flag:
-                fout.write(aln)
 
 
 @func_with_log
