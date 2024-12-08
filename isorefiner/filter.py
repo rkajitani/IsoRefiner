@@ -116,21 +116,17 @@ def gtf_extract_transcript(in_gtf, out_gtf, target_list_file):
         for ln in fin:
             if len(ln) == 0 or ln[0] == "#":
                 continue
-
             f = ln.rstrip("\n").split("\t")
             if f[2] != "transcript":
                 continue
-
             m = gene_re.search(f[8])
             if not m:
                 continue
             gene_id = m.group(1)
-
             m = transcript_re.search(f[8])
             if not m:
                 continue
             transcript_id = m.group(1)
-
             if transcript_id in transcript_set:
                 gene_set.add(gene_id)
 
@@ -139,7 +135,6 @@ def gtf_extract_transcript(in_gtf, out_gtf, target_list_file):
             if len(ln) == 0 or ln[0] == "#":
                 print(ln, end="", file=fout)
                 continue
-
             f = ln.rstrip("\n").split("\t")
             if f[2] == "gene":
                 m = gene_re.search(f[8])
