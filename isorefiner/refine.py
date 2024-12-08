@@ -67,12 +67,18 @@ def main(args):
         # Main process start
         logger.info(f"Starting isorefiner refine")
 
-        # Merge step
+        ## Merge step
         run_command(f"gffcompare -o merge -p cons -r {ref_gtf} {ref_gtf} {' '.join(input_gtfs)}", stdout="gffcompare_merge.stdout", stderr="gffcompare_merge.stderr")
 
-        # Strand-correction step
+        ## Strand-correction step
         run_command(f"gffcompare -r {ref_gtf} merge.combined.gtf -o flip", stdout="gffcompare_flip.stdout", stderr="gffcompare_flip.stderr")
         gtf_flip_strand("merge.combined.gtf", "flip.merge.combined.gtf.tmap", "flipped.gtf")
+
+        ## Correction step based on intron distance 
+        run_command(f"gffread -w asm.fa -g {genome_file} flipped.gtf")
+        run_command(f"minimap2 -ax map-ont --secondary=no -t {n_thread} asm.fa {' '.join(reads_files)} | samtools view -b -F 2308 -", stdout="raw.bam")
+        run_command(f"samtools sort -@ {n_thread} -m 2G raw.bam", stdout="sorted.bam", stderr="samtools_sort.stderr")
+
 
         logger.info(f"Finished isorefiner refine")
 
