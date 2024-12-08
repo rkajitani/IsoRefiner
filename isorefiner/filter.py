@@ -2,6 +2,7 @@
 
 import logging
 import os
+import re
 import subprocess
 import sys
 import polars as pl
@@ -22,7 +23,7 @@ def main(args):
         max_indel = args.max_indel
         max_clip = args.max_clip
         min_idt = args.min_idt
-        min_cov = args.min_cov
+        min_cov = args.min_cov * 100
         min_mean_depth = args.min_mean_depth
 
         # Create and move to working directory
@@ -66,7 +67,7 @@ def main(args):
         run_command(f"samtools index filt.bam")
         run_command(f"samtools coverage filt.bam", stdout="cov.tsv")
         filter_coverage_table("cov.tsv", "cov_depth_filt.list", min_cov, min_mean_depth)
-
+        gtf_extract_transcript(input_gtf, out_gtf, "cov_depth_filt.list")
         logger.info(f"Finished isorefiner filter")
 
     except Exception as e:
@@ -103,26 +104,54 @@ def filter_coverage_table(in_file, out_file, min_cov, min_mean_depth):
     df.write_csv(out_file, include_header=False)
 
 
-#../test/bambu/filter/cmd.sh
-#
-#t=4
-#max_indel=20
-#max_clip=200
-#min_idt=0.9
-#min_cov=95
-#min_mean_depth=1
-#
-#ln -s ../out_transcript.gtf raw.gtf
-#ln -s ../../reads.fastq.gz
-#ln -s ../../genome_chr22.fa genome.fa
-#
-#gffread -w asm.fa -g genome.fa raw.gtf
-#/usr/bin/time minimap2 -ax map-ont --secondary=no -t $t asm.fa reads.fastq.gz 2>mm2.log | samtools view -b -F 2308 - >raw.bam
-#samtools sort -@ $t -m 2G raw.bam >sorted.bam 2>sort.log
-#./bam_filter.py sorted.bam filt.bam $max_indel $max_clip $min_idt
-#samtools index filt.bam
-#samtools coverage filt.bam >cov.tsv
-#
-#df_select.py cov.tsv "#rname" coverage meandepth | sed 1d | perl -ane "print(\$F[0], \"\n\") if (\$F[1] >= $min_cov and \$F[2] >= $min_mean_depth)" >cov_depth_filt.list
-#./gtf_extract_transcript.py raw.gtf cov_depth_filt.list >cov_depth_filt.gtf
-#ln -s cov_depth_filt.gtf out_transcript.gtf
+@func_with_log
+def gtf_extract_transcript(in_gtf, out_gtf, target_list_file):
+    with open(target_list_file) as fin:
+        transcript_set = set(fin.read().splitlines())
+
+    gene_set = set()
+    gene_re = re.compile(r'gene_id "([^"]*)"')
+    transcript_re = re.compile(r'transcript_id "([^"]*)"')
+    with open(in_gtf) as fin:
+        for ln in fin:
+            if len(ln) == 0 or ln[0] == "#":
+                continue
+
+            f = ln.rstrip("\n").split("\t")
+            if f[2] != "transcript":
+                continue
+
+            m = gene_re.search(f[8])
+            if not m:
+                continue
+            gene_id = m.group(1)
+
+            m = transcript_re.search(f[8])
+            if not m:
+                continue
+            transcript_id = m.group(1)
+
+            if transcript_id in transcript_set:
+                gene_set.add(gene_id)
+
+    with open(in_gtf) as fin, open(out_gtf, "w") as fout:
+        for ln in fin:
+            if len(ln) == 0 or ln[0] == "#":
+                print(ln, end="", file=fout)
+                continue
+
+            f = ln.rstrip("\n").split("\t")
+            if f[2] == "gene":
+                m = gene_re.search(f[8])
+                if not m:
+                    continue
+                gene_id = m.group(1)
+                if gene_id in gene_set:
+                    print(ln, end="", file=fout)
+            else:
+                m = transcript_re.search(f[8])
+                if not m:
+                    continue
+                transcript_id = m.group(1)
+                if transcript_id in transcript_set:
+                    print(ln, end="", file=fout)
