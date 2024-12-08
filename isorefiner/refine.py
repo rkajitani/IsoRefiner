@@ -64,7 +64,7 @@ def main(args):
             reads_files.append(reads_file)
             os.symlink(raw_reads_file, reads_file)
 
-        # Main process
+        # Main process start
         logger.info(f"Starting isorefiner refine")
 
         # Merge step
@@ -72,6 +72,7 @@ def main(args):
 
         # Strand-correction step
         run_command(f"gffcompare -r {ref_gtf} merge.combined.gtf -o flip", stdout="gffcompare_flip.stdout", stderr="gffcompare_flip.stderr")
+        gtf_flip_strand("merge.combined.gtf", "flip.merge.combined.gtf.tmap", "flipped.gtf")
 
         logger.info(f"Finished isorefiner refine")
 
@@ -80,3 +81,30 @@ def main(args):
         print(msg, file=sys.stderr)
         logger.error(msg)
         sys.exit(1)
+
+
+@func_with_log
+def gtf_flip_strand(in_gtf, tmap_file, out_gtf):
+    target_set = set()
+    with open(tmap_file) as fin:
+        fin.readline()
+        for ln in fin:
+            f = ln.rstrip("\n").split("\t")
+            if f[2] == "s":
+                target_set.add(f[4])
+
+    transcript_re = re.compile(r'transcript_id "([^"]*)"')
+    with open(in_gtf) as fin, open(out_gtf, "w") as fout:
+        for ln in fin:
+            if len(ln) == 0 or ln[0] == "#":
+                continue
+            f = ln.rstrip("\n").split("\t")
+            m = transcript_re.search(f[8])
+            if m and (m.group(1) in target_set):
+                if f[6] == "+":
+                    f[6] = "-"
+                elif f[6] == "-":
+                    f[6] = "+"
+                print("\t".join(f), file=fout)
+            else:
+                print(ln, end="", file=fout)
