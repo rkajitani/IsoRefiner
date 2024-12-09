@@ -35,6 +35,7 @@ def main():
     parser_refine.add_argument("--max_indel", type=int, default=20, help="Max indel for read mapping")
     parser_refine.add_argument("--max_clip", type=int, default=200, help="Max clip (unaligned) length for read mapping")
     parser_refine.add_argument("--min_idt", type=float, default=0.90, help="Min identity for read mapping [0-1]")
+    parser_refine.add_argument("--intron_dist_th", type=int, default=20, help="Intron distance threshold to exclude erroneous isoforms")
     parser_refine.set_defaults(func=refine.main)
 
     args = parser.parse_args()

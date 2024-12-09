@@ -25,6 +25,7 @@ def main(args):
         max_indel = args.max_indel
         max_clip = args.max_clip
         min_idt = args.min_idt
+        intron_dist_th = args.intron_dist_th
 
         # Create and move to working directory
         work_dir = args.work_dir
@@ -114,13 +115,15 @@ def main(args):
                 f"bedtools getfasta -nameOnly -s -bed intron.bed -fi {genome_file}",
                 "perl -pne 's/\([+-]\)//'",
                 "seqkit fx2tab",
-                'perl -ane \'print(join("\t", ($F[0], substr($F[1], 0, 2), substr($F[1], -2, 2))), "\n")\'',
+                'perl -ane \'print(join("\\t", ($F[0], substr($F[1], 0, 2), substr($F[1], -2, 2))), "\\n")\'',
             ]),
             stdout="intron_edge.tsv",
             stderr="bedtools_getfasta.stderr"
         )
         judge_canonical_intron("intron_edge.tsv", "non_canonical_flag.tsv")
         join_intron_and_dov_tsv("intron_pos_dist.tsv", "cov.tsv", "non_canonical_flag.tsv", "exon_n_len.tsv", "intron_joined.tsv")
+        filt_by_intron_info("intron_joined.tsv", intron_dist_th, "artefact_cand.tsv", "artefact_cand.list")
+        gtf_transcript_id_grep_inv("artefact_cand.list", "flipped.gtf", "intron_dist_filt.gtf")
 
 
         logger.info(f"Finished isorefiner refine")
@@ -406,3 +409,57 @@ def join_intron_and_dov_tsv(intron_pos_dist_tsv, cov_tsv, non_canonical_flag_tsv
         )
     )
     joined_df.write_csv(out_tsv, separator="\t")
+
+
+@func_with_log
+def filt_by_intron_info(in_tsv, dist_th, out_tsv, out_id_list):
+    df = pl.read_csv(in_tsv, separator="\t")
+    with open(out_tsv, "w") as fout, open(out_id_list, "w") as id_list_out:
+        print("\t".join(df.columns), file=fout)
+        for row in df.iter_rows(named=True):
+            transcript_id = row["transcript_id"]
+            counter_id = row["counter_id"]
+            intron_pos_dist = row["intron_pos_dist"]
+            n_intron = row["n_intron"]
+            counter_n_intron = row["counter_n_intron"]
+            transcript_depth = row["transcript_depth"]
+            counter_depth = row["counter_depth"]
+            non_canonical_flag = row["non_canonical_flag"]
+            counter_non_canonical_flag = row["counter_non_canonical_flag"]
+            transcript_len = row["transcript_len"]
+            counter_len = row["counter_len"]
+            target_flag = False
+            
+            if intron_pos_dist == 0:
+                if (n_intron <= counter_n_intron and transcript_len <= counter_len and transcript_depth <= counter_depth and
+                    (n_intron < counter_n_intron or transcript_len < counter_len or transcript_depth < counter_depth)):
+                        target_flag = True
+            elif (intron_pos_dist <= dist_th and 
+                non_canonical_flag == 1 and
+                counter_non_canonical_flag == 0 and
+                n_intron <= counter_n_intron and
+                transcript_len <= counter_len and
+                transcript_depth <= counter_depth):
+                target_flag = True
+
+            if target_flag:
+                print("\t".join([str(_) for _ in row.values()]), file=fout)
+                print(transcript_id, file=id_list_out)
+
+
+@func_with_log
+def gtf_transcript_id_grep_inv(id_list_file, in_gtf, out_gtf):
+    target_set = set()
+    with open(id_list_file) as fin:
+        for ln in fin:
+            target_set.add(ln.rstrip("\n"))
+
+    transcript_re = re.compile(r'transcript_id "([^"]*)"')
+    with open(in_gtf) as fin, open(out_gtf, "w") as fout:
+        for ln in fin:
+            if len(ln) == 0 or ln[0] == "#":
+                continue
+            f = ln.rstrip("\n").split("\t")
+            m = transcript_re.search(f[8])
+            if (not m) or (m.group(1) not in target_set):
+                print(ln, end="", file=fout)
