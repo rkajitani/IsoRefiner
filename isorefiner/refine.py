@@ -120,6 +120,7 @@ def main(args):
             stderr="bedtools_getfasta.stderr"
         )
         judge_canonical_intron("intron_edge.tsv", "non_canonical_flag.tsv")
+        join_intron_and_dov_tsv("intron_pos_dist.tsv", "cov.tsv", "non_canonical_flag.tsv", "exon_n_len.tsv", "intron_joined.tsv")
 
 
         logger.info(f"Finished isorefiner refine")
@@ -342,6 +343,8 @@ def intron_pos_dist(intron_self_ovl_tsv, intron_n_len_tsv, out_tsv):
                     file=fout
                 )
 
+
+@func_with_log
 def judge_canonical_intron(in_tsv, out_tsv):
     canonical_set = set([("GT", "AG")])
 
@@ -367,3 +370,39 @@ def judge_canonical_intron(in_tsv, out_tsv):
             if transcript_id not in non_canonical_id_set:
                 non_canonical_flag = 0
             print(transcript_id, non_canonical_flag, sep="\t", file=fout)
+
+
+@func_with_log
+def join_intron_and_dov_tsv(intron_pos_dist_tsv, cov_tsv, non_canonical_flag_tsv, exon_n_len_tsv, out_tsv):
+    intron_pos_dist_df = pl.read_csv(intron_pos_dist_tsv, separator="\t")
+    cov_df = pl.read_csv(cov_tsv, separator="\t").select("qry_id", "meandepth")
+    non_canonical_flag_df = pl.read_csv(non_canonical_flag_tsv, separator="\t")
+    exon_n_len_df = pl.read_csv(exon_n_len_tsv, separator="\t").select("transcript_id", "sum_len")
+
+    joined_df = (intron_pos_dist_df
+        .join(cov_df, left_on="transcript_id", right_on="qry_id", how="left")
+        .rename({"meandepth": "transcript_depth"})
+        .join(cov_df, left_on="counter_id", right_on="qry_id", how="left")
+        .rename({"meandepth": "counter_depth"})
+        .join(non_canonical_flag_df, left_on="counter_id", right_on="transcript_id", how="left")
+        .rename({"non_canonical_flag": "counter_non_canonical_flag"})
+        .join(non_canonical_flag_df, on="transcript_id", how="left")
+        .join(exon_n_len_df, left_on="counter_id", right_on="transcript_id", how="left")
+        .rename({"sum_len": "counter_len"})
+        .join(exon_n_len_df, on="transcript_id", how="left")
+        .rename({"sum_len": "transcript_len"})
+        .select(
+            "transcript_id",
+            "counter_id",
+            "intron_pos_dist",
+            "n_intron",
+            "counter_n_intron",
+            "transcript_depth",
+            "counter_depth",
+            "non_canonical_flag",
+            "counter_non_canonical_flag",
+            "transcript_len",
+            "counter_len"
+        )
+    )
+    joined_df.write_csv(out_tsv, separator="\t")
