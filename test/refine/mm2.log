@@ -1,12 +1,11 @@
-[M::mm_idx_gen::0.005*1.09] collected minimizers
-[M::mm_idx_gen::0.006*1.55] sorted minimizers
-[M::main::0.007*1.45] loaded/built the index for 22 target sequence(s)
-[M::mm_mapopt_update::0.007*1.43] mid_occ = 11
-[M::mm_idx_stat] kmer size: 15; skip: 10; is_hpc: 0; #seq: 22
-[M::mm_idx_stat::0.007*1.42] distinct minimizers: 2593 (44.39% are singletons); average occurrences: 2.522; average spacing: 5.440; total length: 35573
-[M::worker_pipeline::0.106*2.98] mapped 445 sequences
-[M::main] Version: 2.26-r1175
-[M::main] CMD: minimap2 -ax map-ont --secondary=no -t 4 asm.fa reads.fastq.gz
-[M::main] Real time: 0.107 sec; CPU: 0.316 sec; Peak RSS: 0.009 GB
-0.29user 0.02system 0:00.12elapsed 256%CPU (0avgtext+0avgdata 9012maxresident)k
-1920inputs+8outputs (27major+2033minor)pagefaults 0swaps
+[M::mm_idx_gen::0.003*1.61] collected minimizers
+[M::mm_idx_gen::0.004*2.06] sorted minimizers
+[M::main::0.004*2.06] loaded/built the index for 23 target sequence(s)
+[M::mm_mapopt_update::0.005*2.01] mid_occ = 11
+[M::mm_idx_stat] kmer size: 15; skip: 10; is_hpc: 0; #seq: 23
+[M::mm_idx_stat::0.005*1.98] distinct minimizers: 2593 (44.39% are singletons); average occurrences: 2.712; average spacing: 5.435; total length: 38213
+ERROR: failed to open file 'reads.fastq.gz': No such file or directory
+ERROR: failed to map the query file
+Command exited with non-zero status 1
+0.00user 0.00system 0:00.01elapsed 56%CPU (0avgtext+0avgdata 3964maxresident)k
+0inputs+8outputs (0major+754minor)pagefaults 0swaps

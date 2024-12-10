@@ -3,28 +3,28 @@
 #
 
 #= Summary for dataset: intron_dist_filt.gtf 
-#     Query mRNAs :      20 in       2 loci  (20 multi-exon transcripts)
-#            (2 multi-transcript loci, ~10.0 transcripts per locus)
+#     Query mRNAs :      16 in       2 loci  (16 multi-exon transcripts)
+#            (2 multi-transcript loci, ~8.0 transcripts per locus)
 # Reference mRNAs :      19 in       2 loci  (19 multi-exon)
 # Super-loci w/ reference transcripts:        2
 #-----------------| Sensitivity | Precision  |
-        Base level:   100.0     |    98.7    |
-        Exon level:    96.9     |    92.6    |
+        Base level:    94.4     |    99.0    |
+        Exon level:    87.7     |    96.6    |
       Intron level:   100.0     |    97.7    |
-Intron chain level:    94.7     |    90.0    |
-  Transcript level:    89.5     |    85.0    |
+Intron chain level:    78.9     |    93.8    |
+  Transcript level:    78.9     |    93.8    |
        Locus level:   100.0     |   100.0    |
 
-     Matching intron chains:      18
-       Matching transcripts:      17
+     Matching intron chains:      15
+       Matching transcripts:      15
               Matching loci:       2
 
           Missed exons:       0/65	(  0.0%)
-           Novel exons:       1/68	(  1.5%)
+           Novel exons:       1/59	(  1.7%)
         Missed introns:       0/42	(  0.0%)
          Novel introns:       0/43	(  0.0%)
            Missed loci:       0/2	(  0.0%)
             Novel loci:       0/2	(  0.0%)
 
  Total union super-loci across all input datasets: 2 
-20 out of 20 consensus transcripts written in reform.annotated.gtf (0 discarded as redundant)
+16 out of 16 consensus transcripts written in reform.annotated.gtf (0 discarded as redundant)

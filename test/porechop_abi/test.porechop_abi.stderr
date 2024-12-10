@@ -1,0 +1,46 @@
+/!\ WARNING: Sequence set too small for the requested sample size
+/!\ WARNING: The whole set will be used.
+/!\	 The most frequent kmer has been found in less than 10% of the reads starts after approximate count (6.741573033707865%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads ends after approximate count (6.51685393258427%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads starts after approximate count (6.741573033707865%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads ends after approximate count (6.51685393258427%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads starts after approximate count (6.741573033707865%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads ends after approximate count (6.51685393258427%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads starts after approximate count (6.741573033707865%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads ends after approximate count (6.51685393258427%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads starts after approximate count (6.741573033707865%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads ends after approximate count (6.51685393258427%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads starts after approximate count (6.741573033707865%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads ends after approximate count (6.51685393258427%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads starts after approximate count (6.741573033707865%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads ends after approximate count (6.51685393258427%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads starts after approximate count (6.741573033707865%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads ends after approximate count (6.51685393258427%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads starts after approximate count (6.741573033707865%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads ends after approximate count (6.51685393258427%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads starts after approximate count (6.741573033707865%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 The most frequent kmer has been found in less than 10% of the reads ends after approximate count (6.51685393258427%)
+/!\	 It could mean this file is already trimmed or the sample do not contains detectable adapters.
+/!\	 Frequency warning triggered by 10/10 runs for start adapters
+/!\	 Frequency warning triggered by 10/10 runs for end adapters
+13.77user 0.25system 0:14.46elapsed 96%CPU (0avgtext+0avgdata 33360maxresident)k
+109656inputs+2504outputs (917major+43696minor)pagefaults 0swaps

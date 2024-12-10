@@ -1,10 +1,10 @@
-[M::mm_idx_gen::0.014*1.07] collected minimizers
-[M::mm_idx_gen::0.023*1.66] sorted minimizers
-[M::main::0.023*1.66] loaded/built the index for 324 target sequence(s)
-[M::mm_mapopt_update::0.025*1.62] mid_occ = 129
-[M::mm_idx_stat] kmer size: 15; skip: 5; is_hpc: 0; #seq: 324
-[M::mm_idx_stat::0.026*1.60] distinct minimizers: 52099 (94.29% are singletons); average occurrences: 1.780; average spacing: 2.994; total length: 277621
-[M::worker_pipeline::1.191*2.57] mapped 324 sequences
+[M::mm_idx_gen::0.015*0.98] collected minimizers
+[M::mm_idx_gen::0.024*1.55] sorted minimizers
+[M::main::0.024*1.55] loaded/built the index for 320 target sequence(s)
+[M::mm_mapopt_update::0.025*1.52] mid_occ = 120
+[M::mm_idx_stat] kmer size: 15; skip: 5; is_hpc: 0; #seq: 320
+[M::mm_idx_stat::0.026*1.50] distinct minimizers: 48745 (94.02% are singletons); average occurrences: 1.769; average spacing: 2.997; total length: 258370
+[M::worker_pipeline::0.919*2.47] mapped 320 sequences
 [M::main] Version: 2.26-r1175
 [M::main] CMD: minimap2 -x ava-ont -K 250M -e 25 -f 0.0001 -c -t 3 -X rnabloom_out/rnabloom.longreads.corrected.long.seed.fa.gz rnabloom_out/rnabloom.longreads.corrected.long.seed.fa.gz
-[M::main] Real time: 1.195 sec; CPU: 3.068 sec; Peak RSS: 0.019 GB
+[M::main] Real time: 0.923 sec; CPU: 2.270 sec; Peak RSS: 0.016 GB

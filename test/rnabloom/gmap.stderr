@@ -6,18 +6,18 @@ Checking compiler assumptions for SSE2: 6B8B4567 327B23C6 xor=59F066A1
 Checking compiler assumptions for SSE4.1: -103 -58 max=198 => compiler zero extends
 Checking compiler options for SSE4.2: 6B8B4567 __builtin_clz=1 __builtin_ctz=0 _mm_popcnt_u32=17 __builtin_popcount=17 
 Finished checking compiler assumptions
-Pre-loading compressed genome (oligos)......done (19,056,944 bytes, 4653 pages, 0.00 sec)
+Pre-loading compressed genome (oligos)......done (19,056,944 bytes, 4653 pages, 0.01 sec)
 Looking for genome genome_gmap in directory ./genome_gmap
 Looking for index files in directory ./genome_gmap
   Pointers file is genome_gmap.ref153offsets64meta
   Offsets file is genome_gmap.ref153offsets64strm
   Positions file is genome_gmap.ref153positions
 Offsets compression type: bitpack64
-Allocating memory for ref offset pointers, kmer 15, interval 3...done (134,217,744 bytes, 0.08 sec)
-Allocating memory for ref offsets, kmer 15, interval 3...done (94,189,504 bytes, 0.06 sec)
-Pre-loading ref positions, kmer 15, interval 3......done (52,212,140 bytes, 0.00 sec)
+Allocating memory for ref offset pointers, kmer 15, interval 3...done (134,217,744 bytes, 0.07 sec)
+Allocating memory for ref offsets, kmer 15, interval 3...done (94,189,504 bytes, 0.05 sec)
+Pre-loading ref positions, kmer 15, interval 3......done (52,212,140 bytes, 0.01 sec)
 Starting alignment
-No paths found for rb_3
+No paths found for rb_1
 Processed 6 queries in 0.09 seconds (66.67 queries/sec)
-0.15user 0.20system 0:00.26elapsed 133%CPU (0avgtext+0avgdata 306052maxresident)k
-0inputs+24outputs (0major+86377minor)pagefaults 0swaps
+0.17user 0.20system 0:00.40elapsed 95%CPU (0avgtext+0avgdata 293672maxresident)k
+17232inputs+24outputs (523major+82296minor)pagefaults 0swaps

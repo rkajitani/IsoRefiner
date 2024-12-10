@@ -3,16 +3,16 @@
 #
 
 #= Summary for dataset: merge.combined.gtf 
-#     Query mRNAs :      22 in       2 loci  (22 multi-exon transcripts)
-#            (2 multi-transcript loci, ~11.0 transcripts per locus)
+#     Query mRNAs :      23 in       2 loci  (23 multi-exon transcripts)
+#            (2 multi-transcript loci, ~11.5 transcripts per locus)
 # Reference mRNAs :      19 in       2 loci  (19 multi-exon)
 # Super-loci w/ reference transcripts:        2
 #-----------------| Sensitivity | Precision  |
         Base level:   100.0     |    98.7    |
-        Exon level:   100.0     |    97.1    |
+        Exon level:   100.0     |    95.8    |
       Intron level:   100.0     |    97.7    |
-Intron chain level:   100.0     |    86.4    |
-  Transcript level:   100.0     |    86.4    |
+Intron chain level:   100.0     |    82.6    |
+  Transcript level:   100.0     |    82.6    |
        Locus level:   100.0     |   100.0    |
 
      Matching intron chains:      19
@@ -20,11 +20,11 @@ Intron chain level:   100.0     |    86.4    |
               Matching loci:       2
 
           Missed exons:       0/65	(  0.0%)
-           Novel exons:       1/70	(  1.4%)
+           Novel exons:       1/72	(  1.4%)
         Missed introns:       0/42	(  0.0%)
          Novel introns:       0/43	(  0.0%)
            Missed loci:       0/2	(  0.0%)
             Novel loci:       0/2	(  0.0%)
 
  Total union super-loci across all input datasets: 2 
-22 out of 22 consensus transcripts written in flip.annotated.gtf (0 discarded as redundant)
+23 out of 23 consensus transcripts written in flip.annotated.gtf (0 discarded as redundant)

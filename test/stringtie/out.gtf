@@ -1,16 +1,16 @@
 # stringtie -o out.gtf -G annot.gtf -L ../map_genome/test.sorted.bam
 # StringTie version 2.2.1
-chr22	StringTie	transcript	38685542	38689323	1000	-	.	gene_id "STRG.1"; transcript_id "STRG.1.1"; cov "25.265619"; FPKM "100511.273438"; TPM "87395.406250";
-chr22	StringTie	exon	38685542	38688001	1000	-	.	gene_id "STRG.1"; transcript_id "STRG.1.1"; exon_number "1"; cov "25.989298";
-chr22	StringTie	exon	38688935	38689129	1000	-	.	gene_id "STRG.1"; transcript_id "STRG.1.1"; exon_number "2"; cov "15.982093";
-chr22	StringTie	exon	38689296	38689323	1000	-	.	gene_id "STRG.1"; transcript_id "STRG.1.1"; exon_number "3"; cov "26.338558";
-chr22	StringTie	transcript	38687924	38689323	1000	-	.	gene_id "STRG.1"; transcript_id "STRG.1.2"; reference_id "ENST00000482442.1"; ref_gene_id "ENSG00000100221.11"; ref_gene_name "JOSD1"; cov "146.386154"; FPKM "582351.000000"; TPM "506359.156250";
-chr22	StringTie	exon	38687924	38688001	1000	-	.	gene_id "STRG.1"; transcript_id "STRG.1.2"; exon_number "1"; reference_id "ENST00000482442.1"; ref_gene_id "ENSG00000100221.11"; ref_gene_name "JOSD1"; cov "73.465759";
-chr22	StringTie	exon	38688935	38689323	1000	-	.	gene_id "STRG.1"; transcript_id "STRG.1.2"; exon_number "2"; reference_id "ENST00000482442.1"; ref_gene_id "ENSG00000100221.11"; ref_gene_name "JOSD1"; cov "161.007736";
-chr22	StringTie	transcript	38700276	38701417	1000	-	.	gene_id "STRG.2"; transcript_id "STRG.2.1"; reference_id "ENST00000490169.1"; ref_gene_id "ENSG00000100221.11"; ref_gene_name "JOSD1"; cov "9.125992"; FPKM "36304.871094"; TPM "31567.394531";
-chr22	StringTie	exon	38700276	38700618	1000	-	.	gene_id "STRG.2"; transcript_id "STRG.2.1"; exon_number "1"; reference_id "ENST00000490169.1"; ref_gene_id "ENSG00000100221.11"; ref_gene_name "JOSD1"; cov "11.610787";
+chr22	StringTie	transcript	38685542	38689323	1000	-	.	gene_id "STRG.1"; transcript_id "STRG.1.1"; cov "22.557638"; FPKM "97454.250000"; TPM "85102.796875";
+chr22	StringTie	exon	38685542	38688001	1000	-	.	gene_id "STRG.1"; transcript_id "STRG.1.1"; exon_number "1"; cov "23.786776";
+chr22	StringTie	exon	38688935	38689129	1000	-	.	gene_id "STRG.1"; transcript_id "STRG.1.1"; exon_number "2"; cov "7.781078";
+chr22	StringTie	exon	38689296	38689323	1000	-	.	gene_id "STRG.1"; transcript_id "STRG.1.1"; exon_number "3"; cov "17.477392";
+chr22	StringTie	transcript	38687924	38689323	1000	-	.	gene_id "STRG.1"; transcript_id "STRG.1.2"; reference_id "ENST00000482442.1"; ref_gene_id "ENSG00000100221.11"; ref_gene_name "JOSD1"; cov "125.254517"; FPKM "541128.687500"; TPM "472545.468750";
+chr22	StringTie	exon	38687924	38688001	1000	-	.	gene_id "STRG.1"; transcript_id "STRG.1.2"; exon_number "1"; reference_id "ENST00000482442.1"; ref_gene_id "ENSG00000100221.11"; ref_gene_name "JOSD1"; cov "32.532490";
+chr22	StringTie	exon	38688935	38689323	1000	-	.	gene_id "STRG.1"; transcript_id "STRG.1.2"; exon_number "2"; reference_id "ENST00000482442.1"; ref_gene_id "ENSG00000100221.11"; ref_gene_name "JOSD1"; cov "143.846588";
+chr22	StringTie	transcript	38700276	38701417	1000	-	.	gene_id "STRG.2"; transcript_id "STRG.2.1"; reference_id "ENST00000490169.1"; ref_gene_id "ENSG00000100221.11"; ref_gene_name "JOSD1"; cov "9.029762"; FPKM "39010.675781"; TPM "34066.421875";
+chr22	StringTie	exon	38700276	38700618	1000	-	.	gene_id "STRG.2"; transcript_id "STRG.2.1"; exon_number "1"; reference_id "ENST00000490169.1"; ref_gene_id "ENSG00000100221.11"; ref_gene_name "JOSD1"; cov "11.469388";
 chr22	StringTie	exon	38701257	38701417	1000	-	.	gene_id "STRG.2"; transcript_id "STRG.2.1"; exon_number "2"; reference_id "ENST00000490169.1"; ref_gene_id "ENSG00000100221.11"; ref_gene_name "JOSD1"; cov "3.832298";
-chr22	StringTie	transcript	50252907	50261711	1000	-	.	gene_id "STRG.3"; transcript_id "STRG.3.1"; reference_id "ENST00000622558.4"; ref_gene_id "ENSG00000188130.14"; ref_gene_name "MAPK12"; cov "34.093742"; FPKM "135631.171875"; TPM "117932.460938";
+chr22	StringTie	transcript	50252907	50261711	1000	-	.	gene_id "STRG.3"; transcript_id "STRG.3.1"; reference_id "ENST00000622558.4"; ref_gene_id "ENSG00000188130.14"; ref_gene_name "MAPK12"; cov "34.093742"; FPKM "147292.906250"; TPM "128624.859375";
 chr22	StringTie	exon	50252907	50253480	1000	-	.	gene_id "STRG.3"; transcript_id "STRG.3.1"; exon_number "1"; reference_id "ENST00000622558.4"; ref_gene_id "ENSG00000188130.14"; ref_gene_name "MAPK12"; cov "26.747982";
 chr22	StringTie	exon	50255197	50255370	1000	-	.	gene_id "STRG.3"; transcript_id "STRG.3.1"; exon_number "2"; reference_id "ENST00000622558.4"; ref_gene_id "ENSG00000188130.14"; ref_gene_name "MAPK12"; cov "39.714966";
 chr22	StringTie	exon	50255453	50255531	1000	-	.	gene_id "STRG.3"; transcript_id "STRG.3.1"; exon_number "3"; reference_id "ENST00000622558.4"; ref_gene_id "ENSG00000188130.14"; ref_gene_name "MAPK12"; cov "40.366531";
@@ -22,6 +22,6 @@ chr22	StringTie	exon	50257082	50257193	1000	-	.	gene_id "STRG.3"; transcript_id 
 chr22	StringTie	exon	50258243	50258301	1000	-	.	gene_id "STRG.3"; transcript_id "STRG.3.1"; exon_number "9"; reference_id "ENST00000622558.4"; ref_gene_id "ENSG00000188130.14"; ref_gene_name "MAPK12"; cov "39.564003";
 chr22	StringTie	exon	50261167	50261296	1000	-	.	gene_id "STRG.3"; transcript_id "STRG.3.1"; exon_number "10"; reference_id "ENST00000622558.4"; ref_gene_id "ENSG00000188130.14"; ref_gene_name "MAPK12"; cov "39.158512";
 chr22	StringTie	exon	50261385	50261711	1000	-	.	gene_id "STRG.3"; transcript_id "STRG.3.1"; exon_number "11"; reference_id "ENST00000622558.4"; ref_gene_id "ENSG00000188130.14"; ref_gene_name "MAPK12"; cov "30.972754";
-chr22	StringTie	transcript	50258243	50261166	1000	-	.	gene_id "STRG.3"; transcript_id "STRG.3.2"; cov "70.405540"; FPKM "280086.156250"; TPM "243537.312500";
+chr22	StringTie	transcript	50258243	50261166	1000	-	.	gene_id "STRG.3"; transcript_id "STRG.3.2"; cov "70.405540"; FPKM "304168.312500"; TPM "265617.718750";
 chr22	StringTie	exon	50258243	50258301	1000	-	.	gene_id "STRG.3"; transcript_id "STRG.3.2"; exon_number "1"; cov "71.000000";
 chr22	StringTie	exon	50260829	50261166	1000	-	.	gene_id "STRG.3"; transcript_id "STRG.3.2"; exon_number "2"; cov "70.301773";

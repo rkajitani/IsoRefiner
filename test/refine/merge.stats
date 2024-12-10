@@ -56,7 +56,7 @@ Intron chain level:    21.1     |    80.0    |
 # Reference mRNAs :      19 in       2 loci  (19 multi-exon)
 # Super-loci w/ reference transcripts:        2
 #-----------------| Sensitivity | Precision  |
-        Base level:    41.1     |    97.9    |
+        Base level:    33.8     |    97.4    |
         Exon level:    32.3     |    85.7    |
       Intron level:    35.7     |    93.8    |
 Intron chain level:    15.8     |    60.0    |
@@ -80,7 +80,7 @@ Intron chain level:    15.8     |    60.0    |
 # Reference mRNAs :      19 in       2 loci  (19 multi-exon)
 # Super-loci w/ reference transcripts:        2
 #-----------------| Sensitivity | Precision  |
-        Base level:    44.7     |    97.2    |
+        Base level:    44.4     |    97.2    |
         Exon level:    33.8     |    90.5    |
       Intron level:    35.7     |    93.8    |
 Intron chain level:    15.8     |    60.0    |
@@ -104,7 +104,7 @@ Intron chain level:    15.8     |    60.0    |
 # Reference mRNAs :      19 in       2 loci  (19 multi-exon)
 # Super-loci w/ reference transcripts:        2
 #-----------------| Sensitivity | Precision  |
-        Base level:    43.3     |    97.2    |
+        Base level:    42.8     |    97.9    |
         Exon level:    30.8     |    89.5    |
       Intron level:    33.3     |    93.3    |
 Intron chain level:    10.5     |    50.0    |
@@ -123,16 +123,16 @@ Intron chain level:    10.5     |    50.0    |
             Novel loci:       0/2	(  0.0%)
 
 #= Summary for dataset: set_4.gtf 
-#     Query mRNAs :       4 in       3 loci  (4 multi-exon transcripts)
-#            (1 multi-transcript loci, ~1.3 transcripts per locus)
+#     Query mRNAs :       5 in       3 loci  (5 multi-exon transcripts)
+#            (2 multi-transcript loci, ~1.7 transcripts per locus)
 # Reference mRNAs :      19 in       2 loci  (19 multi-exon)
 # Super-loci w/ reference transcripts:        2
 #-----------------| Sensitivity | Precision  |
-        Base level:    22.7     |    99.3    |
-        Exon level:    29.2     |   100.0    |
-      Intron level:    31.0     |   100.0    |
-Intron chain level:    15.8     |    75.0    |
-  Transcript level:    15.8     |    75.0    |
+        Base level:    40.4     |    99.6    |
+        Exon level:    32.3     |    94.7    |
+      Intron level:    33.3     |   100.0    |
+Intron chain level:    15.8     |    60.0    |
+  Transcript level:    15.8     |    60.0    |
        Locus level:   100.0     |   100.0    |
 
      Matching intron chains:       3
@@ -140,12 +140,12 @@ Intron chain level:    15.8     |    75.0    |
               Matching loci:       2
 
           Missed exons:      26/65	( 40.0%)
-           Novel exons:       0/16	(  0.0%)
-        Missed introns:      18/42	( 42.9%)
-         Novel introns:       0/13	(  0.0%)
+           Novel exons:       0/19	(  0.0%)
+        Missed introns:      16/42	( 38.1%)
+         Novel introns:       0/14	(  0.0%)
            Missed loci:       0/2	(  0.0%)
             Novel loci:       0/3	(  0.0%)
 
  Total union super-loci across all input datasets: 2 
-  (2 multi-transcript, ~11.0 transcripts per locus)
-22 out of 22 consensus transcripts written in merge.combined.gtf (0 discarded as redundant)
+  (2 multi-transcript, ~11.5 transcripts per locus)
+23 out of 23 consensus transcripts written in merge.combined.gtf (0 discarded as redundant)

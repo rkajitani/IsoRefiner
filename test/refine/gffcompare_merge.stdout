@@ -10,6 +10,6 @@ Loading query file #4: set_2.gtf
 Loading query file #5: set_3.gtf
   4 query transfrags loaded.
 Loading query file #6: set_4.gtf
-  4 query transfrags loaded.
-0.00user 0.01system 0:00.08elapsed 20%CPU (0avgtext+0avgdata 3548maxresident)k
-28704inputs+184outputs (26major+460minor)pagefaults 0swaps
+  5 query transfrags loaded.
+0.01user 0.00system 0:00.05elapsed 21%CPU (0avgtext+0avgdata 3708maxresident)k
+704inputs+192outputs (6major+483minor)pagefaults 0swaps

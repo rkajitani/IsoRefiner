@@ -1,7 +1,7 @@
 # isoquant IsoQuant generated GTF
 # Command line: /mnt/fsx/user/kajitt3k/miniconda3/envs/isoquant_v3.3.1/bin/isoquant.py --threads 4 --reference genome.fa --genedb annot.gtf --complete_genedb --bam_list input_bam.txt --data_type nanopore --stranded none --output isoquant_out --transcript_quantification unique_only --gene_quantification unique_only --matching_strategy default --splice_correction_strategy default_ont --model_construction_strategy default_ont --no_secondary --check_canonical --count_exons
 # IsoQuant version: 3.3.1
-chr22	IsoQuant	gene	38685542	38701556	.	-	.	gene_id "ENSG00000100221.11"; transcripts "10"; gene_type "protein_coding"; gene_name "JOSD1"; hgnc_id "HGNC:28953"; havana_gene "OTTHUMG00000151030.18"; 
+chr22	IsoQuant	gene	38685543	38701556	.	-	.	gene_id "ENSG00000100221.11"; transcripts "10"; gene_type "protein_coding"; gene_name "JOSD1"; hgnc_id "HGNC:28953"; havana_gene "OTTHUMG00000151030.18"; 
 chr22	IsoQuant	transcript	38685543	38700943	.	-	.	gene_id "ENSG00000100221.11"; transcript_id "ENST00000683374.1"; exons "5"; Canonical "True";
 chr22	IsoQuant	exon	38700800	38700943	.	-	.	gene_id "ENSG00000100221.11"; transcript_id "ENST00000683374.1"; exon "1"; exon_id "chr22.9";
 chr22	IsoQuant	exon	38699803	38700618	.	-	.	gene_id "ENSG00000100221.11"; transcript_id "ENST00000683374.1"; exon "2"; exon_id "chr22.10";
@@ -36,11 +36,11 @@ chr22	IsoQuant	exon	38700161	38700618	.	-	.	gene_id "ENSG00000100221.11"; transc
 chr22	IsoQuant	transcript	38700276	38701418	.	-	.	gene_id "ENSG00000100221.11"; transcript_id "ENST00000490169.1"; exons "2"; Canonical "True";
 chr22	IsoQuant	exon	38701257	38701418	.	-	.	gene_id "ENSG00000100221.11"; transcript_id "ENST00000490169.1"; exon "1"; exon_id "chr22.5";
 chr22	IsoQuant	exon	38700276	38700618	.	-	.	gene_id "ENSG00000100221.11"; transcript_id "ENST00000490169.1"; exon "2"; exon_id "chr22.6";
-chr22	IsoQuant	transcript	38685542	38700666	.	-	.	gene_id "ENSG00000100221.11"; transcript_id "transcript1.chr22.nic"; exons "4"; Canonical "True";
+chr22	IsoQuant	transcript	38685579	38700666	.	-	.	gene_id "ENSG00000100221.11"; transcript_id "transcript1.chr22.nic"; exons "4"; Canonical "True";
 chr22	IsoQuant	exon	38699803	38700666	.	-	.	gene_id "ENSG00000100221.11"; transcript_id "transcript1.chr22.nic"; exon "1"; exon_id "chr22.1";
 chr22	IsoQuant	exon	38689296	38689424	.	-	.	gene_id "ENSG00000100221.11"; transcript_id "transcript1.chr22.nic"; exon "2"; exon_id "chr22.2";
 chr22	IsoQuant	exon	38688935	38689129	.	-	.	gene_id "ENSG00000100221.11"; transcript_id "transcript1.chr22.nic"; exon "3"; exon_id "chr22.3";
-chr22	IsoQuant	exon	38685542	38688001	.	-	.	gene_id "ENSG00000100221.11"; transcript_id "transcript1.chr22.nic"; exon "4"; exon_id "chr22.4";
+chr22	IsoQuant	exon	38685579	38688001	.	-	.	gene_id "ENSG00000100221.11"; transcript_id "transcript1.chr22.nic"; exon "4"; exon_id "chr22.4";
 chr22	IsoQuant	gene	50245450	50261716	.	-	.	gene_id "ENSG00000188130.14"; transcripts "11"; gene_type "protein_coding"; gene_name "MAPK12"; hgnc_id "HGNC:6874"; tag "overlapping_locus"; havana_gene "OTTHUMG00000030145.5"; 
 chr22	IsoQuant	transcript	50245450	50261143	.	-	.	gene_id "ENSG00000188130.14"; transcript_id "ENST00000497036.5"; exons "26"; Canonical "True";
 chr22	IsoQuant	exon	50260829	50261143	.	-	.	gene_id "ENSG00000188130.14"; transcript_id "ENST00000497036.5"; exon "1"; exon_id "chr22.39";

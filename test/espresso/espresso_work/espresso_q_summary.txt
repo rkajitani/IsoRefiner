@@ -2,15 +2,15 @@
 number of isoforms in input annotation: 19
 number of splice junctions in input annotation: 42
 number of splice sites in input annotation: 68
-number of reads assigned: 229
-number of reads not assigned: 193
-number of full splice match reads: 137
-number of FSM reads with 'perfect match' endpoints: 40
-number of incomplete splice match reads: 36
+number of reads assigned: 186
+number of reads not assigned: 219
+number of full splice match reads: 98
+number of FSM reads with 'perfect match' endpoints: 9
+number of incomplete splice match reads: 29
 number of novel in catalog reads: 1
 number of novel not in catalog reads: 69
-number of single exon reads: 175
-number of reads with a failed splice junction: 4
+number of single exon reads: 205
+number of reads with a failed splice junction: 3
 number of FSM splice junction chains: 5
 number of ISM splice junction chains: 11
 number of NIC splice junction chains: 1
@@ -18,8 +18,8 @@ number of validated NIC chains: 0
 number of NNC splice junction chains: 1
 number of validated NNC chains: 1
 number of splice junction chains with a failed junction: 3
-total FSM abundance: 143.97
-total novel ISM abundance: 14
+total FSM abundance: 104.97
+total novel ISM abundance: 10
 total NIC abundance: 0
 total NNC abundance: 71
 total single exon abundance: 0
@@ -29,4 +29,4 @@ number of detected NIC isoforms: 0
 number of detected NNC isoforms: 1
 number of detected single exon isoforms: 0
 number of internal exon boundary check failures: 3
-number of terminal exon boundary check failures: 23
+number of terminal exon boundary check failures: 14

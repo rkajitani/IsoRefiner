@@ -7,7 +7,7 @@ rnabloom_jar=/mnt/fsx/user/kajitt3k/tools/RNA-Bloom_v2.0.1/RNA-Bloom.jar
 max_mem=400g
 sample_list=(test)
 
-ln -s ../reads.fastq.gz test.fastq.gz
+ln -s ../porechop_abi/test.trimmed.fastq.gz test.fastq.gz
 
 for s in ${sample_list[@]}
 do
@@ -45,3 +45,4 @@ transcript_fa=./rnabloom_out/rnabloom.transcripts.fa
 gffread -E -T -o gmap.gtf gmap.gff3
 ./gtf_filter_long_intron.py gmap.gtf $max_intron_len >gmap_filt.gtf
 rm -r genome_gmap
+ln -s gmap_filt.gtf out_transcript.gtf

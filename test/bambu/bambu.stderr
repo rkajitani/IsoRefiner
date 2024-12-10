@@ -34,5 +34,5 @@ Caused by warning in `max()`:
 ! no non-missing arguments to max; returning -Inf 
 6: In predict.lm(lm(NDRscores ~ poly(score, 3, raw = TRUE)), newdata = data.frame(score = baseline)) :
   prediction from rank-deficient fit; attr(*, "non-estim") has doubtful cases
-23.17user 2.92system 0:23.90elapsed 109%CPU (0avgtext+0avgdata 1012192maxresident)k
-64368inputs+168outputs (790major+269094minor)pagefaults 0swaps
+25.37user 3.00system 0:25.33elapsed 111%CPU (0avgtext+0avgdata 1012444maxresident)k
+152168inputs+184outputs (1463major+268392minor)pagefaults 0swaps

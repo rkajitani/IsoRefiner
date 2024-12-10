@@ -1,11 +1,11 @@
 /mnt/fsx/user/kajitt3k/miniconda3/envs/espresso_v1.5.0/bin/perl /mnt/fsx/user/kajitt3k/miniconda3/envs/espresso_v1.5.0/bin/ESPRESSO_C.pl -X 0 -T 4 -I espresso_work -F genome.fa
-number of reads in output: 422
+number of reads in output: 405
 number of reads missing blast output: 0
-number of reads without splice junctions to correct: 175
-number of passed splice junction alignments: 718
+number of reads without splice junctions to correct: 205
+number of passed splice junction alignments: 655
 number of corrected splice junction alignments: 2
-number of failed splice junction alignments: 4
+number of failed splice junction alignments: 3
 number of added first splice junction alignments: 1
 number of added last splice junction alignments: 1
-number of aligner calls: 1270
+number of aligner calls: 1067
 number of nhmmer calls: 2

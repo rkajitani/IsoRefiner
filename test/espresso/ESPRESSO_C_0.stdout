@@ -1,21 +1,21 @@
-[Mon Nov 25 14:16:50 2024] Loading splice junction info
-[Mon Nov 25 14:16:50 2024] Requesting system to split SAMLIST into 4 pieces
+[Tue Dec 10 12:28:18 2024] Loading splice junction info
+[Tue Dec 10 12:28:18 2024] Requesting system to split SAMLIST into 4 pieces
  Divided SAM(LIST) sizes:
- sam.list3aa	         108175
- sam.list3ab	         108175
- sam.list3ac	         108175
- sam.list3ad	         108175
+ sam.list3aa	          99391
+ sam.list3ab	          99391
+ sam.list3ac	          99391
+ sam.list3ad	          99390
  SAM(LIST) was divided successfully.
  First group of divided SAM(LIST) files: 
  sam.list3ac: 1
  sam.list3aa: 0
  First reads were recorded successfully for 2 files.
-[Mon Nov 25 14:16:50 2024] Loading references
-[Mon Nov 25 14:16:50 2024] Scanning SAMLIST by 2 workers
+[Tue Dec 10 12:28:18 2024] Loading references
+[Tue Dec 10 12:28:18 2024] Scanning SAMLIST by 2 workers
  Worker 1 begins to scan sam.list3aa.
 0	11
 1	32
  Worker 2 begins to scan sam.list3ac.
 Worker 2 finished reporting.
 Worker 1 finished reporting.
-[Mon Nov 25 14:16:55 2024] ESPRESSO_C finished its work.
+[Tue Dec 10 12:28:23 2024] ESPRESSO_C finished its work.

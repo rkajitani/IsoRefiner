@@ -1,12 +1,12 @@
-[M::mm_idx_gen::0.002*1.97] collected minimizers
-[M::mm_idx_gen::0.003*2.50] sorted minimizers
-[M::main::0.003*2.49] loaded/built the index for 6 target sequence(s)
-[M::mm_mapopt_update::0.003*2.44] mid_occ = 10
+[M::mm_idx_gen::0.002*1.95] collected minimizers
+[M::mm_idx_gen::0.003*2.33] sorted minimizers
+[M::main::0.003*2.32] loaded/built the index for 6 target sequence(s)
+[M::mm_mapopt_update::0.003*2.27] mid_occ = 10
 [M::mm_idx_stat] kmer size: 15; skip: 10; is_hpc: 0; #seq: 6
-[M::mm_idx_stat::0.003*2.39] distinct minimizers: 1206 (64.84% are singletons); average occurrences: 1.357; average spacing: 5.458; total length: 8929
-[M::worker_pipeline::0.060*2.70] mapped 445 sequences
+[M::mm_idx_stat::0.003*2.24] distinct minimizers: 1199 (64.64% are singletons); average occurrences: 1.359; average spacing: 5.459; total length: 8892
+[M::worker_pipeline::0.055*2.69] mapped 428 sequences
 [M::main] Version: 2.26-r1175
 [M::main] CMD: minimap2 -ax map-ont --secondary=no -t 4 asm.fa reads.fastq.gz
-[M::main] Real time: 0.061 sec; CPU: 0.163 sec; Peak RSS: 0.007 GB
-0.14user 0.01system 0:00.07elapsed 225%CPU (0avgtext+0avgdata 7280maxresident)k
-0inputs+8outputs (0major+1866minor)pagefaults 0swaps
+[M::main] Real time: 0.056 sec; CPU: 0.150 sec; Peak RSS: 0.007 GB
+0.14user 0.00system 0:00.06elapsed 215%CPU (0avgtext+0avgdata 6896maxresident)k
+0inputs+8outputs (0major+1773minor)pagefaults 0swaps

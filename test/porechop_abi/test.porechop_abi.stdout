@@ -1,0 +1,229 @@
+
+[1m[4mAb Initio Phase[0m
+Kmer size:             16
+Sampled sequences:     40000
+Sampling length        100
+LC filter threshold:   1
+Adjusted LC threshold: 1
+Nb thread:             1
+Number of kept kmer:   500
+Number of runs:        10
+Verbosity level:       1
+
+A total of 10 runs will be performed.
+[35.4718 ms]	Parsing FASTA file
+[44.1169 ms]	Number of sequences found: 445.
+Starting run number 1
+[44.5248 ms]	Working on sequence start.
+[181.544 ms]	Working on sequence end.
+Starting run number 2
+[311.075 ms]	Working on sequence start.
+[441.004 ms]	Working on sequence end.
+Starting run number 3
+[568.801 ms]	Working on sequence start.
+[698.691 ms]	Working on sequence end.
+Starting run number 4
+[825.974 ms]	Working on sequence start.
+[956.455 ms]	Working on sequence end.
+Starting run number 5
+[1085.41 ms]	Working on sequence start.
+[1216.4 ms]	Working on sequence end.
+Starting run number 6
+[1344.94 ms]	Working on sequence start.
+[1474.48 ms]	Working on sequence end.
+Starting run number 7
+[1602.62 ms]	Working on sequence start.
+[1732.46 ms]	Working on sequence end.
+Starting run number 8
+[1860.98 ms]	Working on sequence start.
+[1991.47 ms]	Working on sequence end.
+Starting run number 9
+[2119.96 ms]	Working on sequence start.
+[2249.53 ms]	Working on sequence end.
+Starting run number 10
+[2377.52 ms]	Working on sequence start.
+[2508.27 ms]	Working on sequence end.
+Starting with a 10 run batch.
+Using config file:/mnt/fsx/user/kajitt3k/miniconda3/envs/porechop_abi_v0.5.0/lib/python3.10/site-packages/porechop_abi/ab_initio.config
+Command line:
+ /mnt/fsx/user/kajitt3k/miniconda3/envs/porechop_abi_v0.5.0/lib/python3.10/site-packages/porechop_abi/approx_counter test.fastq.gz -v 1 --config /mnt/fsx/user/kajitt3k/miniconda3/envs/porechop_abi_v0.5.0/lib/python3.10/site-packages/porechop_abi/ab_initio.config -o test_tmp/temp_approx_kmer_count -nt 1 -mr 10
+Assembling run 1
+Assembling run 2
+Assembling run 3
+Assembling run 4
+Assembling run 5
+Assembling run 6
+Assembling run 7
+Assembling run 8
+Assembling run 9
+Assembling run 10
+Perfect consensus found!
+Same sequence in 1.0 runs
+Consensus step done
+
+Rebuild adapters:
+
+Start
+Adapter_1_start_(100%)
+CTCTACCTCTTCTGGTACCACCAGCAG
+End
+Adapter_1_end_(100%)
+CTCAGGAAGTTTCTAAAACATCATTTGCGAGGAAAGAACTGTGAACTCCTGCTGGTGGTACCAG
+Building consensus adapter objects
+The inference of adapters sequence is done.
+
+[1m[4mLoading reads[0m
+test.fastq.gz
+445 reads loaded
+
+
+[1m[4mLooking for known adapter sets[0m
+0 / 445 (0.0%)10 / 445 (2.2%)20 / 445 (4.5%)30 / 445 (6.7%)40 / 445 (9.0%)50 / 445 (11.2%)60 / 445 (13.5%)70 / 445 (15.7%)80 / 445 (18.0%)90 / 445 (20.2%)100 / 445 (22.5%)110 / 445 (24.7%)120 / 445 (27.0%)130 / 445 (29.2%)140 / 445 (31.5%)150 / 445 (33.7%)160 / 445 (36.0%)170 / 445 (38.2%)180 / 445 (40.4%)190 / 445 (42.7%)200 / 445 (44.9%)210 / 445 (47.2%)220 / 445 (49.4%)230 / 445 (51.7%)240 / 445 (53.9%)250 / 445 (56.2%)260 / 445 (58.4%)270 / 445 (60.7%)280 / 445 (62.9%)290 / 445 (65.2%)300 / 445 (67.4%)310 / 445 (69.7%)320 / 445 (71.9%)330 / 445 (74.2%)340 / 445 (76.4%)350 / 445 (78.7%)360 / 445 (80.9%)370 / 445 (83.1%)380 / 445 (85.4%)390 / 445 (87.6%)400 / 445 (89.9%)410 / 445 (92.1%)420 / 445 (94.4%)430 / 445 (96.6%)440 / 445 (98.9%)445 / 445 (100.0%)445 / 445 (100.0%)
+                                        Best               [0m
+                                        read       Best    [0m
+                                        start      read end[0m
+  [4mSet                                   %ID        %ID     [0m
+  SQK-NSK007                                71.4       73.9
+  Rapid                                     63.5        0.0
+  RBK004_upstream                           67.5        0.0
+  SQK-MAP006                                72.4       75.0
+  SQK-MAP006 short                          71.9       72.0
+  PCR adapters 1                            77.3       73.9
+  PCR adapters 2                            72.7       75.0
+  PCR adapters 3                            73.9       73.9
+  1D^2 part 1                               69.7       74.1
+  1D^2 part 2                               68.6       71.0
+  cDNA SSP                                  65.2       67.5
+  Barcode 1 (reverse)                       76.9       72.0
+  Barcode 2 (reverse)                       74.1       72.0
+  Barcode 3 (reverse)                       73.1       73.1
+  Barcode 4 (reverse)                       75.0       70.4
+  Barcode 5 (reverse)                       80.0       71.4
+  Barcode 6 (reverse)                       70.4       72.0
+  Barcode 7 (reverse)                       76.9       75.0
+  Barcode 8 (reverse)                       74.1       74.1
+  Barcode 9 (reverse)                       77.8       77.8
+  Barcode 10 (reverse)                      74.1       76.9
+  Barcode 11 (reverse)                      72.0       70.8
+  Barcode 12 (reverse)                      70.4       76.0
+  Barcode 1 (forward)                       75.0       76.0
+  Barcode 2 (forward)                       74.1       71.4
+  Barcode 3 (forward)                       71.4       76.0
+  Barcode 4 (forward)                       72.0       75.0
+  Barcode 5 (forward)                       71.0       70.4
+  Barcode 6 (forward)                       79.2       71.4
+  Barcode 7 (forward)                       73.1       70.8
+  Barcode 8 (forward)                       73.1       75.0
+  Barcode 9 (forward)                       76.0       72.0
+  Barcode 10 (forward)                      71.4       72.0
+  Barcode 11 (forward)                      73.1       74.1
+  Barcode 12 (forward)                      73.1       74.1
+  Barcode 13 (forward)                      76.9       73.1
+  Barcode 14 (forward)                      73.1       75.0
+  Barcode 15 (forward)                      74.1       73.1
+  Barcode 16 (forward)                      75.0       76.0
+  Barcode 17 (forward)                      72.0       73.1
+  Barcode 18 (forward)                      75.0       74.1
+  Barcode 19 (forward)                      73.1       75.0
+  Barcode 20 (forward)                      72.0       72.0
+  Barcode 21 (forward)                      73.1       74.1
+  Barcode 22 (forward)                      76.0       73.1
+  Barcode 23 (forward)                      76.0       77.8
+  Barcode 24 (forward)                      72.0       71.4
+  Barcode 25 (forward)                      74.1       72.0
+  Barcode 26 (forward)                      72.0       75.9
+  Barcode 27 (forward)                      74.1       73.1
+  Barcode 28 (forward)                      72.0       72.0
+  Barcode 29 (forward)                      76.9       75.0
+  Barcode 30 (forward)                      75.0       75.0
+  Barcode 31 (forward)                      72.0       75.0
+  Barcode 32 (forward)                      75.0       73.1
+  Barcode 33 (forward)                      73.3       72.0
+  Barcode 34 (forward)                      76.0       74.1
+  Barcode 35 (forward)                      72.0       73.1
+  Barcode 36 (forward)                      72.0       71.4
+  Barcode 37 (forward)                      75.0       75.0
+  Barcode 38 (forward)                      76.9       76.9
+  Barcode 39 (forward)                      72.0       76.0
+  Barcode 40 (forward)                      76.0       74.1
+  Barcode 41 (forward)                      75.0       76.0
+  Barcode 42 (forward)                      73.1       70.8
+  Barcode 43 (forward)                      72.0       70.8
+  Barcode 44 (forward)                      73.1       76.9
+  Barcode 45 (forward)                      79.2       72.0
+  Barcode 46 (forward)                      75.0       76.0
+  Barcode 47 (forward)                      70.8       73.1
+  Barcode 48 (forward)                      72.0       72.0
+  Barcode 49 (forward)                      72.0       75.0
+  Barcode 50 (forward)                      76.0       75.0
+  Barcode 51 (forward)                      75.0       75.0
+  Barcode 52 (forward)                      75.0       75.0
+  Barcode 53 (forward)                      72.0       73.3
+  Barcode 54 (forward)                      72.0       75.0
+  Barcode 55 (forward)                      76.0       73.1
+  Barcode 56 (forward)                      76.0       74.1
+  Barcode 57 (forward)                      72.0       76.9
+  Barcode 58 (forward)                      72.0       72.0
+  Barcode 59 (forward)                      74.1       72.0
+  Barcode 60 (forward)                      73.1       72.0
+  Barcode 61 (forward)                      73.1       73.1
+  Barcode 62 (forward)                      73.1       75.0
+  Barcode 63 (forward)                      75.0       74.1
+  Barcode 64 (forward)                      74.1       75.0
+  Barcode 65 (forward)                      79.2       76.9
+  Barcode 66 (forward)                      73.1       75.0
+  Barcode 67 (forward)                      76.0       75.0
+  Barcode 68 (forward)                      70.8       76.0
+  Barcode 69 (forward)                      75.0       75.0
+  Barcode 70 (forward)                      73.1       72.0
+  Barcode 71 (forward)                      72.0       73.1
+  Barcode 72 (forward)                      79.2       73.1
+  Barcode 73 (forward)                      72.0       73.1
+  Barcode 74 (forward)                      73.1       79.2
+  Barcode 75 (forward)                      73.1       72.0
+  Barcode 76 (forward)                      74.1       75.0
+  Barcode 77 (forward)                      75.9       72.0
+  Barcode 78 (forward)                      70.4       75.0
+  Barcode 79 (forward)                      79.2       75.0
+  Barcode 80 (forward)                      75.0       73.1
+  Barcode 81 (forward)                      75.0       74.1
+  Barcode 82 (forward)                      76.0       74.1
+  Barcode 83 (forward)                      72.0       73.1
+  Barcode 84 (forward)                      74.1       72.0
+  Barcode 85 (forward)                      72.0       70.8
+  Barcode 86 (forward)                      76.9       75.0
+  Barcode 87 (forward)                      79.2       75.0
+  Barcode 88 (forward)                      75.0       79.2
+  Barcode 89 (forward)                      75.0       72.0
+  Barcode 90 (forward)                      73.1       76.9
+  Barcode 91 (forward)                      75.0       73.1
+  Barcode 92 (forward)                      75.0       73.1
+  Barcode 93 (forward)                      73.1       75.0
+  Barcode 94 (forward)                      72.4       72.0
+  Barcode 95 (forward)                      72.0       72.0
+  Barcode 96 (forward)                      73.1       76.0
+  [32mAdapter_1_start_(100%)_adapter           100.0        0.0[0m
+  [32mAdapter_1_end_(100%)_adapter               0.0      100.0[0m
+
+
+[1m[4mTrimming adapters from read ends[0m
+  Adapter_1_start_(100%): [31mCTCTACCTCTTCTGGTACCACCAGCAG[0m
+    Adapter_1_end_(100%): [31mCTCAGGAAGTTTCTAAAACATCATTTGCGAGGAAAGAACTGTGAACTCCTGCTGGTGGTACCAG[0m
+
+0 / 445 (0.0%)10 / 445 (2.2%)20 / 445 (4.5%)30 / 445 (6.7%)40 / 445 (9.0%)50 / 445 (11.2%)60 / 445 (13.5%)70 / 445 (15.7%)80 / 445 (18.0%)90 / 445 (20.2%)100 / 445 (22.5%)110 / 445 (24.7%)120 / 445 (27.0%)130 / 445 (29.2%)140 / 445 (31.5%)150 / 445 (33.7%)160 / 445 (36.0%)170 / 445 (38.2%)180 / 445 (40.4%)190 / 445 (42.7%)200 / 445 (44.9%)210 / 445 (47.2%)220 / 445 (49.4%)230 / 445 (51.7%)240 / 445 (53.9%)250 / 445 (56.2%)260 / 445 (58.4%)270 / 445 (60.7%)280 / 445 (62.9%)290 / 445 (65.2%)300 / 445 (67.4%)310 / 445 (69.7%)320 / 445 (71.9%)330 / 445 (74.2%)340 / 445 (76.4%)350 / 445 (78.7%)360 / 445 (80.9%)370 / 445 (83.1%)380 / 445 (85.4%)390 / 445 (87.6%)400 / 445 (89.9%)410 / 445 (92.1%)420 / 445 (94.4%)430 / 445 (96.6%)440 / 445 (98.9%)445 / 445 (100.0%)445 / 445 (100.0%)
+
+ 43 / 445 reads had adapters trimmed from their start (2,868 bp removed)
+ 36 / 445 reads had adapters trimmed from their end (2,148 bp removed)
+
+
+[1m[4mSplitting reads containing middle adapters[0m
+0 / 445 (0.0%)10 / 445 (2.2%)20 / 445 (4.5%)30 / 445 (6.7%)40 / 445 (9.0%)50 / 445 (11.2%)60 / 445 (13.5%)70 / 445 (15.7%)80 / 445 (18.0%)90 / 445 (20.2%)100 / 445 (22.5%)110 / 445 (24.7%)120 / 445 (27.0%)130 / 445 (29.2%)140 / 445 (31.5%)150 / 445 (33.7%)160 / 445 (36.0%)170 / 445 (38.2%)180 / 445 (40.4%)190 / 445 (42.7%)200 / 445 (44.9%)210 / 445 (47.2%)220 / 445 (49.4%)230 / 445 (51.7%)240 / 445 (53.9%)250 / 445 (56.2%)260 / 445 (58.4%)270 / 445 (60.7%)280 / 445 (62.9%)290 / 445 (65.2%)300 / 445 (67.4%)310 / 445 (69.7%)320 / 445 (71.9%)330 / 445 (74.2%)340 / 445 (76.4%)350 / 445 (78.7%)360 / 445 (80.9%)370 / 445 (83.1%)380 / 445 (85.4%)390 / 445 (87.6%)400 / 445 (89.9%)410 / 445 (92.1%)420 / 445 (94.4%)430 / 445 (96.6%)440 / 445 (98.9%)445 / 445 (100.0%)445 / 445 (100.0%)
+
+39 / 445 reads were split based on middle adapters
+
+
+[1m[4mSaving trimmed reads to file[0m
+pigz found - using it to compress instead of gzip
+
+Saved result to /mnt/fsx/user/kajitt3k/git/IsoRefiner/test/porechop_abi/test.trimmed.fastq.gz
+

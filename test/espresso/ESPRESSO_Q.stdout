@@ -1,11 +1,11 @@
-[Mon Nov 25 14:16:56 2024] running command: /mnt/fsx/user/kajitt3k/miniconda3/envs/espresso_v1.5.0/bin/perl /mnt/fsx/user/kajitt3k/miniconda3/envs/espresso_v1.5.0/bin/ESPRESSO_Q_Thread.pm espresso_work/thread_shared_arguments.tmp espresso_work/thread_chr22_arguments.tmp
-[Mon Nov 25 14:16:56 2024] Loading annotation
-[Mon Nov 25 14:16:56 2024] Summarizing annotated isoforms
-[Mon Nov 25 14:16:56 2024] Loading corrected splice junctions and alignment information by ESPRESSO
-[Mon Nov 25 14:16:56 2024] Categorizing reads according to annotation
-[Mon Nov 25 14:16:56 2024] thread_id: 1 starting to process chr: chr22
-[Mon Nov 25 14:17:06 2024] thread_id: 1 finished
-[Mon Nov 25 14:17:06 2024] Writing final output
-[Mon Nov 25 14:16:56 2024] finished command: /mnt/fsx/user/kajitt3k/miniconda3/envs/espresso_v1.5.0/bin/perl /mnt/fsx/user/kajitt3k/miniconda3/envs/espresso_v1.5.0/bin/ESPRESSO_Q_Thread.pm espresso_work/thread_shared_arguments.tmp espresso_work/thread_chr22_arguments.tmp
-[Mon Nov 25 14:17:06 2024] Cleaning up threads
-[Mon Nov 25 14:17:07 2024] ESPRESSO finished quantification
+[Tue Dec 10 12:28:23 2024] running command: /mnt/fsx/user/kajitt3k/miniconda3/envs/espresso_v1.5.0/bin/perl /mnt/fsx/user/kajitt3k/miniconda3/envs/espresso_v1.5.0/bin/ESPRESSO_Q_Thread.pm espresso_work/thread_shared_arguments.tmp espresso_work/thread_chr22_arguments.tmp
+[Tue Dec 10 12:28:23 2024] Loading annotation
+[Tue Dec 10 12:28:23 2024] Summarizing annotated isoforms
+[Tue Dec 10 12:28:23 2024] Loading corrected splice junctions and alignment information by ESPRESSO
+[Tue Dec 10 12:28:23 2024] Categorizing reads according to annotation
+[Tue Dec 10 12:28:23 2024] thread_id: 3 starting to process chr: chr22
+[Tue Dec 10 12:28:33 2024] thread_id: 3 finished
+[Tue Dec 10 12:28:33 2024] Writing final output
+[Tue Dec 10 12:28:24 2024] finished command: /mnt/fsx/user/kajitt3k/miniconda3/envs/espresso_v1.5.0/bin/perl /mnt/fsx/user/kajitt3k/miniconda3/envs/espresso_v1.5.0/bin/ESPRESSO_Q_Thread.pm espresso_work/thread_shared_arguments.tmp espresso_work/thread_chr22_arguments.tmp
+[Tue Dec 10 12:28:33 2024] Cleaning up threads
+[Tue Dec 10 12:28:35 2024] ESPRESSO finished quantification

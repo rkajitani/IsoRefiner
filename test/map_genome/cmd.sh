@@ -4,7 +4,7 @@ t=4
 s=test
 
 ln -s ../genome_chr22.fa genome.fa
-ln -s ../reads.fastq.gz $s.fastq.gz
+ln -s ../porechop_abi/test.trimmed.fastq.gz $s.fastq.gz
 
 /usr/bin/time minimap2 \
     -t $t \

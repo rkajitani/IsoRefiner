@@ -8,7 +8,7 @@ min_cov=95
 min_mean_depth=1
 
 ln -s ../out_transcript.gtf raw.gtf
-ln -s ../../reads.fastq.gz
+ln -s ../../porechop_abi/test.trimmed.fastq.gz reads.fastq.gz
 ln -s ../../genome_chr22.fa genome.fa
 
 gffread -w asm.fa -g genome.fa raw.gtf

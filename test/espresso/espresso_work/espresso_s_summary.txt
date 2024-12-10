@@ -5,10 +5,10 @@ number of chromosomes in both annotation and FASTA: 1
 number of isoforms in input annotation: 19
 number of splice junctions in input annotation: 42
 number of high confidence splice junctions: 43
-total over all splice junctions of supporting reads: 724
-total over all splice junctions of perfect reads: 304
+total over all splice junctions of supporting reads: 660
+total over all splice junctions of perfect reads: 277
 number of read groups: 2
-number of reads in output: 422
+number of reads in output: 405
 number of chrM alignments filtered: 0
 number of secondary alignments filtered: 0
 number of alignments filtered for mapping quality: 23

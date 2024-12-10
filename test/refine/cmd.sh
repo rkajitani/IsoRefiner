@@ -36,7 +36,7 @@ min_mean_depth=1
 
 ln -s ../flip/flipped.gtf raw.gtf
 ln -s ../genome_chr22.fa genome.fa
-ln -s ../reads.fastq.gz reads.fastq.gz
+ln -s ../../porechop_abi/test.trimmed.fastq.gz reads.fastq.gz
 
 gffread -w asm.fa -g genome.fa flipped.gtf
 /usr/bin/time minimap2 -ax map-ont --secondary=no -t $t asm.fa reads.fastq.gz 2>mm2.log | samtools view -b -F 2308 - >raw.bam
