@@ -38,10 +38,9 @@ def main(args):
         )
 
         # Set input files and create symbolic links
-        input_gtf = "raw.gtf"
+        input_gtf = "input.gtf"
         if os.path.lexists(input_gtf):
             input_gtf = f"raw_{os.getpid()}.gtf"
-        os.symlink(raw_input_gtf, input_gtf)
 
         genome_file = "genome.fasta"
         if os.path.lexists(genome_file):
@@ -59,6 +58,7 @@ def main(args):
 
         # Main process
         logger.info(f"Starting isorefiner filter")
+        fix_gtf_strand(raw_input_gtf, input_gtf)
         run_command(f"gffread -w asm.fa -g {genome_file} {input_gtf}")
         run_command(f"minimap2 -ax map-ont --secondary=no -t {n_thread} asm.fa {' '.join(reads_files)} | samtools view -b -F 2308 -", stdout="raw.bam")
         run_command(f"samtools sort -@ {n_thread} -m 2G raw.bam", stdout="sorted.bam", stderr="samtools_sort.stderr")
@@ -74,6 +74,31 @@ def main(args):
         print(msg, file=sys.stderr)
         logger.error(msg)
         sys.exit(1)
+
+
+@func_with_log
+def fix_gtf_strand(in_gtf, out_gtf):
+    fix_flag = False
+    with open(in_gtf) as fin:
+        for ln in fin:
+            if len(ln) == 0 or ln[0] == "#":
+                continue
+            f = ln.rstrip("\n").split("\t")
+            if f[6] != "+" and f[6] != "-":
+                fix_flag = True
+                break
+
+    if fix_flag:
+        with open(in_gtf) as fin, open(out_gtf, "w") as fout:
+            for ln in fin:
+                if len(ln) == 0 or ln[0] == "#":
+                    continue
+                f = ln.rstrip("\n").split("\t")
+                if f[6] != "+" and f[6] != "-":
+                    f[6] = "+"
+                print("\t".join(f), file=fout)
+    else:
+        os.symlink(in_gtf, out_gtf)
 
 
 @func_with_log
