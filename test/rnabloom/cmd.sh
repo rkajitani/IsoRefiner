@@ -1,10 +1,8 @@
 #!/usr/bin/bash
 
-source activate rnabloom_v2.0.1
-
 t=4
-rnabloom_jar=/mnt/fsx/user/kajitt3k/tools/RNA-Bloom_v2.0.1/RNA-Bloom.jar
 max_mem=400g
+export JAVA_TOOL_OPTIONS="-Xmx$max_mem"
 sample_list=(test)
 
 ln -s ../porechop_abi/test.trimmed.fastq.gz test.fastq.gz
@@ -14,9 +12,7 @@ do
     fastq_list+=($s.fastq.gz)
 done
 
-/usr/bin/time java -Xmx$max_mem -jar $rnabloom_jar -t $t -outdir rnabloom_out -long ${fastq_list[@]} >rnabloom.stdout 2>rnabloom.stderr
-
-conda deactivate
+/usr/bin/time rnabloom -t $t -outdir rnabloom_out -long ${fastq_list[@]} >rnabloom.stdout 2>rnabloom.stderr
 
 
 t=4

@@ -3,87 +3,20 @@ args: [-t, 4, -outdir, rnabloom_out, -long, test.fastq.gz]
 
 name:   rnabloom
 outdir: rnabloom_out
-WARNING: Output directory does not exist!
-Created output directory at `rnabloom_out`
 
 Turning on option `-ntcard` to count k-mers
 
 K-mer counting with ntCard...
-Running command: `ntcard -t 4 -k 25 -c 65535 -p rnabloom_out/rnabloom @rnabloom_out/rnabloom.ntcard.readslist.txt`...
 Parsing histogram file `rnabloom_out/rnabloom_k25.hist`...
 Unique k-mers (k=25):     233,793
 Unique k-mers (k=25,c>1): 9,983
-K-mer counting completed in 3.734s
-
-Bloom filters          Memory (GB)
-====================================
-de Bruijn graph:       5.166469E-4
-k-mer counting:        1.7648749E-4
-====================================
-Total:                 6.931344E-4
-
-> Stage 1: Construct graph from reads (k=25)
-Parsing `test.fastq.gz`...
-Parsed 428 sequences in 0.053s
-DBG Bloom filter FPR:                 0.0306 %
-Counting Bloom filter FPR:            0.238 %
-> Stage 1 completed in 0.073s
+K-mer counting completed in 0.078s
 
 > Stage 2: Correct long reads for "rnabloom"
-Parsing `test.fastq.gz`...
-Corrected Read Lengths Sampling Distribution (n=426)
-	min	q1	med	q3	max
-	147	356	452	707	3680
-Parsed 428 sequences.
-	Kept:      426	(99.5 %)
-	Discarded: 2	(0.467 %)
-Corrected reads in 0.553s
-Extracting seed sequences...
-strobemers: n=3, k=11, wMin=12, wMax=61, depth=3
-Bloom filter FPR:	16.6 %
-before: 425	after: 320 (75.3 %)
-too short: 0
-Extraction completed in 0.22s
-> Stage 2 completed in 0.775s
+WARNING: Reads were already corrected!
+> Stage 2 completed in 0.0s
 
 > Stage 3: Assemble long reads for "rnabloom"
-Overlapping sequences...
-Parsed 9,553 overlap records in 0.911s
-total reads:    320
- - unique:      8	(2.5 %)
-   - multi-seg: 0
-Unique reads extracted in 0.013s
-Overlapping sequences...
-Parsed 8 overlap records in 0.013s
-contained reads: 1
-dovetail reads:  3
-G: |V|=6 |E|=4
-G: |V|=6 |E|=4
-before: 8	after: 7
-Laid out paths in 0.012s
-Mapping sequences...
-Mapping completed in 0.074s
-Polishing sequences...
-Polishing completed in 0.115s
-Overlapping sequences...
-Parsed 6 overlap records in 0.009s
-dovetail reads:  3
-G: |V|=6 |E|=6
-Removing redundant vertexes...
-G: |V|=4 |E|=2
-Removing transitive edges...
-G: |V|=4 |E|=2
-Pruning graph with polyA information...
-G: |V|=4 |E|=2
-Tallying read counts...
-Counts tallied for 6 sequences in 0.003s
-Pruning graph with read count information...
-Supported edges: 0
-G: |V|=4 |E|=0
-Extracting vertex sequences...
-Sequences extracted in 0.005s
-Extracting paths...
-before: 7	after: 6
-Laid out paths in 0.01s
-> Stage 3 completed in 1.293s
-Total runtime: 6.025s
+WARNING: Reads were already assembled!
+> Stage 3 completed in 0.0s
+Total runtime: 0.183s

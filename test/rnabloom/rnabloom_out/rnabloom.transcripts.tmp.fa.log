@@ -1,10 +1,10 @@
-[M::mm_idx_gen::0.002*1.49] collected minimizers
-[M::mm_idx_gen::0.004*1.60] sorted minimizers
-[M::main::0.004*1.60] loaded/built the index for 7 target sequence(s)
-[M::mm_mapopt_update::0.004*1.57] mid_occ = 10
+[M::mm_idx_gen::0.002*1.48] collected minimizers
+[M::mm_idx_gen::0.004*1.58] sorted minimizers
+[M::main::0.004*1.58] loaded/built the index for 7 target sequence(s)
+[M::mm_mapopt_update::0.004*1.55] mid_occ = 10
 [M::mm_idx_stat] kmer size: 15; skip: 5; is_hpc: 0; #seq: 7
-[M::mm_idx_stat::0.004*1.55] distinct minimizers: 2452 (72.72% are singletons); average occurrences: 1.333; average spacing: 2.988; total length: 9766
+[M::mm_idx_stat::0.004*1.53] distinct minimizers: 2452 (72.72% are singletons); average occurrences: 1.333; average spacing: 2.988; total length: 9766
 [M::worker_pipeline::0.006*1.73] mapped 7 sequences
-[M::main] Version: 2.26-r1175
+[M::main] Version: 2.28-r1209
 [M::main] CMD: minimap2 -x ava-ont -K 250M -e 25 -f 0.0001 -c -t 3 -X rnabloom_out/rnabloom.longreads.assembly4.pol.fa rnabloom_out/rnabloom.longreads.assembly4.pol.fa
-[M::main] Real time: 0.006 sec; CPU: 0.011 sec; Peak RSS: 0.004 GB
+[M::main] Real time: 0.006 sec; CPU: 0.010 sec; Peak RSS: 0.004 GB
