@@ -3,7 +3,6 @@
 import logging
 import os
 import re
-import subprocess
 import sys
 import polars as pl
 from isorefiner.common import func_with_log, run_command, filter_bam

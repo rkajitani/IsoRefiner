@@ -4,7 +4,6 @@ import csv
 import logging
 import os
 import re
-import subprocess
 import sys
 from collections import defaultdict
 from operator import itemgetter
