@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
-from isorefiner import filter, refine 
+from isorefiner import filter, refine, trim
 
 
 def main():
@@ -37,6 +37,15 @@ def main():
     parser_refine.add_argument("--min_idt", type=float, default=0.90, help="Min identity for read mapping [0-1]")
     parser_refine.add_argument("--intron_dist_th", type=int, default=20, help="Intron distance threshold to exclude erroneous isoforms")
     parser_refine.set_defaults(func=refine.main)
+
+    # Trim subcomand
+    parser_trim = subparsers.add_parser("trim", help="Trim nanopore reads using Porechop_ABI.", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser_trim.add_argument("-r", "--reads", type=str, required=True, nargs="*", help="Reads (FASTQ or FASTA, gzip allowed, mandatory)")
+    parser_trim.add_argument("-o", "--out_prefix", type=str, default="isorefiner_trimmed", help="Prefix of final output files (extentions are those of input files)")
+    parser_trim.add_argument("-d", "--work_dir", type=str, default="isorefiner_trim_work", help="Working directory containing intermediate and log files")
+    parser_trim.add_argument("-t", "--threads", type=int, default=1, help="Number of threads")
+    parser_trim.add_argument("-p", "--tool_option", type=str, default="", help="Option for Porechomp_ABI (quoted string)")
+    parser_trim.set_defaults(func=trim.main)
 
     args = parser.parse_args()
     args.func(args)
