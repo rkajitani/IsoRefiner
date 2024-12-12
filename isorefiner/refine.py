@@ -105,7 +105,7 @@ def main(args):
         gtf_to_intron_bed("flipped.gtf", "intron.bed")
         bed_part_stats("intron.bed", "intron_n_len.tsv")
         run_command(
-            f"bedtools intersect -s -wao -a intron.bed -b intron.bed | perl -ane 'print if ($F[3] ne $F[9])'",
+            r"bedtools intersect -s -wao -a intron.bed -b intron.bed | perl -ane 'print if ($F[3] ne $F[9])'",
             stdout="intron_self_ovl.tsv",
             stderr="bedtools_intersect.stderr"
         )
@@ -113,7 +113,7 @@ def main(args):
         run_command(
             "|".join([
                 f"bedtools getfasta -nameOnly -s -bed intron.bed -fi {genome_file}",
-                "perl -pne 's/\([+-]\)//'",
+                r"perl -pne 's/\([+-]\)//'",
                 "seqkit fx2tab",
                 'perl -ane \'print(join("\\t", ($F[0], substr($F[1], 0, 2), substr($F[1], -2, 2))), "\\n")\'',
             ]),

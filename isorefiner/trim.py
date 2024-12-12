@@ -63,8 +63,8 @@ def main(args):
                     f"--temp_dir tmp_{i}",
                     tool_option
                 ]),
-                stdout="porechop_abi_{i}.stdout",
-                stderr="porechop_abi_{i}.stderr"
+                stdout=f"porechop_abi_{i}.stdout",
+                stderr=f"porechop_abi_{i}.stderr"
             )
             shutil.rmtree(f"tmp_{i}")
         logger.info(f"Finished isorefiner trim")
