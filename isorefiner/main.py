@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
-from isorefiner import filter, refine, trim
+from isorefiner import filter, refine, trim, run_stringtie
 
 
 def main():
@@ -46,6 +46,17 @@ def main():
     parser_trim.add_argument("-t", "--threads", type=int, default=1, help="Number of threads")
     parser_trim.add_argument("-p", "--tool_option", type=str, default="", help="Option for Porechomp_ABI (quoted string)")
     parser_trim.set_defaults(func=trim.main)
+
+    # StringTie subcomand
+    parser_run_stringtie = subparsers.add_parser("run_stringtie", help="Run StringTie (read mapping-based tool).", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser_run_stringtie.add_argument("-r", "--reads", type=str, required=True, nargs="*", help="Reads (FASTQ or FASTA, gzip allowed, mandatory)")
+    parser_run_stringtie.add_argument("-g", "--genome", type=str, required=True, help="Reference genome (FASTA, mandatory)")
+    parser_run_stringtie.add_argument("-a", "--ref_gtf", type=str, required=True, help="Reference genome annotation (GTF, mandatory)")
+    parser_run_stringtie.add_argument("-o", "--out_gtf", type=str, default="isorefiner_stringtie.gtf", help="Final output file name (GTF)")
+    parser_run_stringtie.add_argument("-d", "--work_dir", type=str, default="isorefiner_stringtie_work", help="Working directory containing intermediate and log files")
+    parser_run_stringtie.add_argument("-t", "--threads", type=int, default=1, help="Number of threads")
+    parser_run_stringtie.add_argument("-p", "--tool_option", type=str, default="", help="Option for StringTie (quoted string)")
+    parser_run_stringtie.set_defaults(func=run_stringtie.main)
 
     args = parser.parse_args()
     args.func(args)
