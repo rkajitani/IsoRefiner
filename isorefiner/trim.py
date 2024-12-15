@@ -50,7 +50,7 @@ def main(args):
                 out_files.append(reads_file)
 
         # Main process
-        logger.info(f"Starting isorefiner trim")
+        logger.info(f"Starting isorefiner {args.command}")
         for i, (reads_file, out_file) in enumerate(zip(reads_files, out_files), start=1):
             run_command(
                 " ".join([
@@ -67,7 +67,7 @@ def main(args):
                 stderr=f"porechop_abi_{i}.stderr"
             )
             shutil.rmtree(f"tmp_{i}")
-        logger.info(f"Finished isorefiner trim")
+        logger.info(f"Finished isorefiner {args.command}")
 
     except Exception as e:
         msg = f"Error: {e}, Exception class: {type(e).__name__}"

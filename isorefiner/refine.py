@@ -68,7 +68,7 @@ def main(args):
             os.symlink(raw_reads_file, reads_file)
 
         # Main process start
-        logger.info(f"Starting isorefiner refine")
+        logger.info(f"Starting isorefiner {args.command}")
 
         ## Merge step
         run_command(
@@ -133,7 +133,7 @@ def main(args):
         )
         reform_cons_gtf("intron_dist_filt.gtf", "reform.intron_dist_filt.gtf.tmap", ref_gtf, out_gtf)
 
-        logger.info(f"Finished isorefiner refine")
+        logger.info(f"Finished isorefiner {args.command}")
 
     except Exception as e:
         msg = f"Error: {e}, Exception class: {type(e).__name__}"

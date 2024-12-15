@@ -56,7 +56,7 @@ def main(args):
             os.symlink(raw_reads_file, reads_file)
 
         # Main process
-        logger.info(f"Starting isorefiner filter")
+        logger.info(f"Starting isorefiner {args.command}")
         fix_gtf_strand(raw_input_gtf, input_gtf)
         run_command(f"gffread -w asm.fa -g {genome_file} {input_gtf}")
         run_command(f"minimap2 -ax map-ont --secondary=no -t {n_thread} asm.fa {' '.join(reads_files)} | samtools view -b -F 2308 -", stdout="raw.bam")
@@ -66,7 +66,7 @@ def main(args):
         run_command(f"samtools coverage filt.bam", stdout="cov.tsv")
         filter_coverage_table("cov.tsv", "cov_depth_filt.list", min_cov, min_mean_depth)
         gtf_extract_transcript(input_gtf, out_gtf, "cov_depth_filt.list")
-        logger.info(f"Finished isorefiner filter")
+        logger.info(f"Finished isorefiner {args.command}")
 
     except Exception as e:
         msg = f"Error: {e}, Exception class: {type(e).__name__}"
