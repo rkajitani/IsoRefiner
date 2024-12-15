@@ -49,7 +49,7 @@ def main():
 
     # StringTie subcomand
     parser_run_stringtie = subparsers.add_parser("run_stringtie", help="Run StringTie (read mapping-based tool).", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser_run_stringtie.add_argument("-r", "--reads", type=str, required=True, nargs="*", help="Reads (FASTQ or FASTA, gzip allowed, mandatory)")
+    parser_run_stringtie.add_argument("-b", "--bam", type=str, required=True, nargs="*", help="Mapped reads files (BAM, mandatory)")
     parser_run_stringtie.add_argument("-g", "--genome", type=str, required=True, help="Reference genome (FASTA, mandatory)")
     parser_run_stringtie.add_argument("-a", "--ref_gtf", type=str, required=True, help="Reference genome annotation (GTF, mandatory)")
     parser_run_stringtie.add_argument("-o", "--out_gtf", type=str, default="isorefiner_stringtie.gtf", help="Final output file name (GTF)")

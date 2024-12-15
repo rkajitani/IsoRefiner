@@ -2,9 +2,8 @@
 
 import logging
 import os
-import shutil
 import sys
-from isorefiner.common import func_with_log, run_command
+from isorefiner.common import run_command
 
 logger = logging.getLogger(__name__)
 
@@ -12,8 +11,9 @@ logger = logging.getLogger(__name__)
 def main(args):
     try:
         # Set variables
-        raw_reads_files = [os.path.abspath(_) for _ in args.reads]
-        out_prefix = os.path.abspath(args.out_gtf)
+        raw_bam_files = [os.path.abspath(_) for _ in args.bam]
+        raw_ref_gtf = os.path.abspath(args.ref_gtf)
+        out_gtf = os.path.abspath(args.out_gtf)
         n_thread = args.threads
         tool_option = args.tool_option
 
@@ -30,44 +30,39 @@ def main(args):
         )
 
         # Set input files and create symbolic links
-        reads_files = list()
-        for i, raw_reads_file in enumerate(raw_reads_files, start=1):
-            reads_ext = os.path.basename(raw_reads_file).split(".", 1)[1]
-            reads_file = f"reads_{i}.{reads_ext}"
-            if os.path.lexists(reads_file):
-                reads_file = f"reads_{i}_{os.getpid()}.{reads_ext}"
-            reads_files.append(reads_file)
-            os.symlink(raw_reads_file, reads_file)
+        bam_files = list()
+        for i, raw_bam_file in enumerate(raw_bam_files, start=1):
+            bam_file = f"map_{i}.bam"
+            if os.path.lexists(bam_file):
+                bam_file = f"map_{i}_{os.getpid()}.bam"
+            bam_files.append(bam_file)
+            os.symlink(raw_bam_file, bam_file)
+            for idx_ext in ["bai", "csi"]:
+                if os.path.lexists(f"{raw_bam_file}.{idx_ext}"):
+                    os.symlink(f"{raw_bam_file}.{idx_ext}", f"{bam_file}.{idx_ext}")
 
-        n_file = len(raw_reads_files)
-        out_files = list()
-        if n_file == 1:
-            out_files.append(f"{out_prefix}.{reads_ext}")
-        else:
-            for i, raw_reads_file in enumerate(raw_reads_files, start=1):
-                reads_ext = os.path.basename(raw_reads_file).split(".", 1)[1]
-                out_file = f"{out_prefix}_{i}.{reads_ext}"
-                out_files.append(reads_file)
+        ref_gtf = "ref.gtf"
+        if os.path.lexists(ref_gtf):
+            ref_gtf = f"ref_{os.getpid()}.gtf"
+        os.symlink(raw_ref_gtf, ref_gtf)
 
         # Main process
-        logger.info(f"Starting isorefiner trim")
-        for i, (reads_file, out_file) in enumerate(zip(reads_files, out_files), start=1):
-            run_command(
-                " ".join([
-                    "porechop_abi",
-                    "--ab_initio",
-                    "--verbosity 1",
-                    f"--threads {n_thread}",
-                    f"--input {reads_file}",
-                    f"--output {out_file}",
-                    f"--temp_dir tmp_{i}",
-                    tool_option
-                ]),
-                stdout=f"porechop_abi_{i}.stdout",
-                stderr=f"porechop_abi_{i}.stderr"
-            )
-            shutil.rmtree(f"tmp_{i}")
-        logger.info(f"Finished isorefiner trim")
+        logger.info(f"Starting isorefiner {args.command}")
+        for bam_file in bam_files:
+            if not (os.path.lexists(f"{bam_file}.bai") or os.path.lexists(f"{bam_file}.csi")):
+                run_command(f"samtools index {bam_file}.{idx_ext}")
+        run_command(
+            " ".join([
+                "stringtie",
+                f"-o {out_gtf}",
+                f"-G {ref_gtf}",
+                f"-p {n_thread}",
+                "-L",
+                tool_option,
+                " ".join(bam_files)
+            ])
+        )
+        logger.info(f"Finished isorefiner {args.command}")
 
     except Exception as e:
         msg = f"Error: {e}, Exception class: {type(e).__name__}"
