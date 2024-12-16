@@ -77,7 +77,7 @@ def main(args):
                     "-O BAM",
                     f"-@ {n_thread}",
                     sort_option,
-                    ' '.join(reads_files)
+                    f"raw_{i}.bam"
                 ]),
                 stdout=out_file,
                 stderr=f"samtools_sort_{i}.stderr"
