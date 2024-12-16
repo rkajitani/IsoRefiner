@@ -20,7 +20,8 @@ def main():
     # Map subcomand
     parser_map = subparsers.add_parser("map", help="Map reads to the reference genome using Minimap2, and sort BAM files.", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser_map.add_argument("-r", "--reads", type=str, required=True, nargs="*", help="Reads (FASTQ or FASTA, gzip allowed, mandatory)")
-    parser_map.add_argument("-o", "--out_prefix", type=str, default="isorefiner_map", help="Prefix of output BAM files")
+    parser_map.add_argument("-g", "--genome", type=str, required=True, help="Reference genome (FASTA, mandatory)")
+    parser_map.add_argument("-o", "--out_prefix", type=str, default="isorefiner_mapped", help="Prefix of output BAM files")
     parser_map.add_argument("-d", "--work_dir", type=str, default="isorefiner_map_work", help="Working directory containing intermediate and log files")
     parser_map.add_argument("-t", "--threads", type=int, default=1, help="Number of threads")
     parser_map.add_argument("-m", "--mm2_option", type=str, default="-x splice -ub -k14 --secondary=no", help="Option for minimap2 (quoted string)")
