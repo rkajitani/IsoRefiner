@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
-from isorefiner import filter, refine, trim, map, run_stringtie
+from isorefiner import filter, refine, trim, map, run_isoquant, run_stringtie
 
 
 def main():
@@ -28,10 +28,34 @@ def main():
     parser_map.add_argument("-s", "--sort_option", type=str, default="-m 2G", help="Option for samtools sort (quoted string)")
     parser_map.set_defaults(func=map.main)
 
+    # IsoQuant subcomand
+    parser_run_isoquant = subparsers.add_parser("run_isoquant", help="Run IsoQuant (read mapping-based tool).", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser_run_isoquant.add_argument("-b", "--bam", type=str, required=True, nargs="*", help="Mapped reads files (BAM, mandatory)")
+    parser_run_isoquant.add_argument("-g", "--genome", type=str, required=True, help="Reference genome (FASTA, mandatory)")
+    parser_run_isoquant.add_argument("-a", "--ref_gtf", type=str, required=True, help="Reference genome annotation (GTF, mandatory)")
+    parser_run_isoquant.add_argument("-o", "--out_gtf", type=str, default="isorefiner_isoquant.gtf", help="Final output file name (GTF)")
+    parser_run_isoquant.add_argument("-d", "--work_dir", type=str, default="isorefiner_isoquant_work", help="Working directory containing intermediate and log files")
+    parser_run_isoquant.add_argument("-t", "--threads", type=int, default=1, help="Number of threads")
+    isoquant_option_default = " ".join([
+        "--complete_genedb",
+        "--data_type nanopore",
+        "--stranded none",
+        "--transcript_quantification unique_only",
+        "--gene_quantification unique_only",
+        "--matching_strategy default",
+        "--splice_correction_strategy default_ont",
+        "--model_construction_strategy default_ont",
+        "--no_secondary",
+        "--check_canonical",
+        "--count_exons"
+    ])
+    parser_run_isoquant.add_argument("-p", "--tool_option", type=str, default=isoquant_option_default, help="Option for isoquant (quoted string)")
+    parser_run_isoquant.set_defaults(func=run_isoquant.main)
+
     # StringTie subcomand
     parser_run_stringtie = subparsers.add_parser("run_stringtie", help="Run StringTie (read mapping-based tool).", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser_run_stringtie.add_argument("-b", "--bam", type=str, required=True, nargs="*", help="Mapped reads files (BAM, mandatory)")
-    parser_run_stringtie.add_argument("-g", "--genome", type=str, required=True, help="Reference genome (FASTA, mandatory)")
+    parser_run_stringtie.add_argument("-g", "--genome", type=str, required=False, help="Reference genome (FASTA)")
     parser_run_stringtie.add_argument("-a", "--ref_gtf", type=str, required=True, help="Reference genome annotation (GTF, mandatory)")
     parser_run_stringtie.add_argument("-o", "--out_gtf", type=str, default="isorefiner_stringtie.gtf", help="Final output file name (GTF)")
     parser_run_stringtie.add_argument("-d", "--work_dir", type=str, default="isorefiner_stringtie_work", help="Working directory containing intermediate and log files")
