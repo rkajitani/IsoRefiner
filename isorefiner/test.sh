@@ -7,6 +7,9 @@ isorefiner filter -i ../test/stringtie/out.gtf -r ../test/reads.fastq.gz -g ../t
 rm -r isorefiner_map_work
 isorefiner map -r ../test/reads.fastq.gz -g ../test/genome_chr22.fa
 
+rm -rf isorefiner_bambu_work
+isorefiner run_bambu -b  ../test/map_genome/test.sorted.bam -g ../test/genome_chr22.fa -a ../test/annot_reduced.gtf
+
 rm -rf isorefiner_espresso_work
 isorefiner run_espresso -b  ../test/map_genome/test.sorted.bam -g ../test/genome_chr22.fa -a ../test/annot_reduced.gtf
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
-from isorefiner import filter, refine, trim, map, run_espresso, run_isoquant, run_stringtie
+from isorefiner import filter, refine, trim, map, run_bambu, run_espresso, run_isoquant, run_stringtie
 
 
 def main():
@@ -27,6 +27,16 @@ def main():
     parser_map.add_argument("-m", "--mm2_option", type=str, default="-x splice -ub -k14 --secondary=no", help="Option for minimap2 (quoted string)")
     parser_map.add_argument("-s", "--sort_option", type=str, default="-m 2G", help="Option for samtools sort (quoted string)")
     parser_map.set_defaults(func=map.main)
+
+    # Bambu subcomand
+    parser_run_bambu = subparsers.add_parser("run_bambu", help="Run bambu (read mapping-based tool).", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser_run_bambu.add_argument("-b", "--bam", type=str, required=True, nargs="*", help="Mapped reads files (BAM, mandatory)")
+    parser_run_bambu.add_argument("-g", "--genome", type=str, required=True, help="Reference genome (FASTA, mandatory)")
+    parser_run_bambu.add_argument("-a", "--ref_gtf", type=str, required=True, help="Reference genome annotation (GTF, mandatory)")
+    parser_run_bambu.add_argument("-o", "--out_gtf", type=str, default="isorefiner_bambu.gtf", help="Final output file name (GTF)")
+    parser_run_bambu.add_argument("-d", "--work_dir", type=str, default="isorefiner_bambu_work", help="Working directory containing intermediate and log files")
+    parser_run_bambu.add_argument("-t", "--threads", type=int, default=1, help="Number of threads")
+    parser_run_bambu.set_defaults(func=run_bambu.main)
 
     # ESPRESSO subcomand
     parser_run_espresso = subparsers.add_parser("run_espresso", help="Run espresso (read mapping-based tool).", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
