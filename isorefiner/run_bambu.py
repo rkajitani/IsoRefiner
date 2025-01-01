@@ -65,8 +65,7 @@ def main(args):
             stdout=f"bambu.stdout",
             stderr=f"bambu.stderr"
         )
-        gtf_filt_zero_count("bambu_out/extended_annotations.gtf", {out_gtf}, "bambu_out/counts_transcript.txt")
-        shutil.move("isoquant_output/isoquant/isoquant.transcript_models.gtf", out_gtf)
+        gtf_filt_zero_count("bambu_out/extended_annotations.gtf", out_gtf, "bambu_out/counts_transcript.txt")
         logger.info(f"Finished isorefiner {args.command}")
 
     except Exception as e:
@@ -119,7 +118,7 @@ def gtf_filt_zero_count(in_gtf, out_gtf, bambu_count_tsv):
     with open(in_gtf) as fin, open(out_gtf, "w") as fout:
         fin.readline()
         for ln in fin:
-            if len(ln) == 0 or ln[1] == "#":
+            if len(ln) == 0 or ln[0] == "#":
                 print(ln, end="", file=fout)
                 continue
             f = ln.rstrip("\n").split("\t")
