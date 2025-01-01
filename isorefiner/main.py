@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
-from isorefiner import filter, refine, trim, map, run_isoquant, run_stringtie
+from isorefiner import filter, refine, trim, map, run_espresso, run_isoquant, run_stringtie
 
 
 def main():
@@ -27,6 +27,19 @@ def main():
     parser_map.add_argument("-m", "--mm2_option", type=str, default="-x splice -ub -k14 --secondary=no", help="Option for minimap2 (quoted string)")
     parser_map.add_argument("-s", "--sort_option", type=str, default="-m 2G", help="Option for samtools sort (quoted string)")
     parser_map.set_defaults(func=map.main)
+
+    # ESPRESSO subcomand
+    parser_run_espresso = subparsers.add_parser("run_espresso", help="Run espresso (read mapping-based tool).", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser_run_espresso.add_argument("-b", "--bam", type=str, required=True, nargs="*", help="Mapped reads files (BAM, mandatory)")
+    parser_run_espresso.add_argument("-g", "--genome", type=str, required=True, help="Reference genome (FASTA, mandatory)")
+    parser_run_espresso.add_argument("-a", "--ref_gtf", type=str, required=True, help="Reference genome annotation (GTF, mandatory)")
+    parser_run_espresso.add_argument("-o", "--out_gtf", type=str, default="isorefiner_espresso.gtf", help="Final output file name (GTF)")
+    parser_run_espresso.add_argument("-d", "--work_dir", type=str, default="isorefiner_espresso_work", help="Working directory containing intermediate and log files")
+    parser_run_espresso.add_argument("-t", "--threads", type=int, default=1, help="Number of threads")
+    parser_run_espresso.add_argument("-s", "--tool_s_option", type=str, default="", help="Option for ESPRESSO_S.pl (quoted string)")
+    parser_run_espresso.add_argument("-c", "--tool_c_option", type=str, default="", help="Option for ESPRESSO_C.pl (quoted string)")
+    parser_run_espresso.add_argument("-q", "--tool_q_option", type=str, default="", help="Option for ESPRESSO_Q.pl (quoted string)")
+    parser_run_espresso.set_defaults(func=run_espresso.main)
 
     # IsoQuant subcomand
     parser_run_isoquant = subparsers.add_parser("run_isoquant", help="Run IsoQuant (read mapping-based tool).", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
