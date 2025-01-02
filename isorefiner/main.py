@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
-from isorefiner import filter, refine, trim, map, run_bambu, run_espresso, run_isoquant, run_stringtie
+from isorefiner import filter, refine, trim, map, run_bambu, run_espresso, run_isoquant, run_stringtie, run_rnabloom
 
 
 def main():
@@ -85,7 +85,22 @@ def main():
     parser_run_stringtie.add_argument("-t", "--threads", type=int, default=1, help="Number of threads")
     parser_run_stringtie.add_argument("-p", "--tool_option", type=str, default="", help="Option for StringTie (quoted string)")
     parser_run_stringtie.set_defaults(func=run_stringtie.main)
-    
+
+    # RNA-Bloom subcomand
+    parser_run_rnabloom = subparsers.add_parser("run_rnabloom", help="Run RNA-Bloom (de novo assembly-based tool) and GMAP (contig mapping).", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser_run_rnabloom.add_argument("-r", "--reads", type=str, required=True, nargs="*", help="Reads (FASTQ or FASTA, gzip allowed, mandatory)")
+    parser_run_rnabloom.add_argument("-g", "--genome", type=str, required=False, help="Reference genome (FASTA)")
+    parser_run_rnabloom.add_argument("-o", "--out_gtf", type=str, default="isorefiner_rnabloom.gtf", help="Final output file name (GTF)")
+    parser_run_rnabloom.add_argument("-d", "--work_dir", type=str, default="isorefiner_rnabloom_work", help="Working directory containing intermediate and log files")
+    parser_run_rnabloom.add_argument("-t", "--threads", type=int, default=1, help="Number of threads")
+    parser_run_rnabloom.add_argument("--max_mem", type=str, default="400g", help="Max memory for RNA-Bloom (java -Xmx)")
+    parser_run_rnabloom.add_argument("--rnabloom_option", type=str, default="", help="Option for RNA-Bloom (quoted string)")
+    parser_run_rnabloom.add_argument("--gmap_min_cov", type=float, default=0.5, help="Min alignment coverage for GMAP [0-1]")
+    parser_run_rnabloom.add_argument("--gmap_min_idt", type=float, default=0.95, help="Min identity for GMAP [0-1]")
+    parser_run_rnabloom.add_argument("--gmap_max_intron", type=int, default=100000, help="Max intron length for GMAP (bp)")
+    parser_run_rnabloom.add_argument("--gmap_option", type=str, default="-n 1 --no-chimeras", help="Option for GMAP (quoted string)")
+    parser_run_rnabloom.set_defaults(func=run_rnabloom.main)
+
     # Filter subcommand
     parser_filter = subparsers.add_parser("filter", help="Filter transcript isoforms.", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser_filter.add_argument("-i", "--input_gtf", type=str, required=True, help="Input transcript isoform structures (GTF, mandatory)")
