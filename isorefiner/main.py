@@ -1,12 +1,22 @@
 #!/usr/bin/env python
 
 import argparse
-from isorefiner import filter, refine, trim, map, run_bambu, run_espresso, run_isoquant, run_stringtie, run_rnabloom
+from isorefiner import trans_struct_wf, filter, refine, trim, map, run_bambu, run_espresso, run_isoquant, run_stringtie, run_rnabloom
 
 
 def main():
     parser = argparse.ArgumentParser(description="IsoRefiner, a tool to filter, merge, and refine transcript isoform structures.")
     subparsers = parser.add_subparsers(dest='command', required=True)
+
+    # Transcript-structure refinment workflow subcomand
+    parser_trans_struct_wf = subparsers.add_parser("trans_struct_wf", help="Workflow of trascript-structure refinment", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser_trans_struct_wf.add_argument("-r", "--reads", type=str, required=True, nargs="*", help="Reads (FASTQ or FASTA, gzip allowed, mandatory)")
+    parser_trans_struct_wf.add_argument("-g", "--genome", type=str, required=True, help="Reference genome (FASTA, mandatory)")
+    parser_trans_struct_wf.add_argument("-a", "--ref_gtf", type=str, required=True, help="Reference genome annotation (GTF, mandatory)")
+    parser_trans_struct_wf.add_argument("-o", "--out_gtf", type=str, default="isorefiner_refined.gtf", help="Final output file name (GTF)")
+    parser_trans_struct_wf.add_argument("-d", "--work_dir", type=str, default="isorefiner_trans_struct_wf_work", help="Working directory containing intermediate and log files")
+    parser_trans_struct_wf.add_argument("-t", "--threads", type=int, default=1, help="Number of threads")
+    parser_trans_struct_wf.set_defaults(func=trans_struct_wf.main)
 
     # Trim subcomand
     parser_trim = subparsers.add_parser("trim", help="Trim nanopore reads using Porechop_ABI.", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
