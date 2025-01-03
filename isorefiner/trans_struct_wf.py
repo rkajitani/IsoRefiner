@@ -84,7 +84,7 @@ def main(args):
                 stderr=f"{tool}.stderr"
             )
             run_command(
-                f"isorefiner filter -t {n_thread} -i {prefix}_{tool}.gtf -r {trimmed_files_str} -g {genome_file} -o {prefix}_filtered_{tool}.gtf -d {prefix}_filter_${tool}_work",
+                f"isorefiner filter -t {n_thread} -i {prefix}_{tool}.gtf -r {trimmed_files_str} -g {genome_file} -o {prefix}_filtered_{tool}.gtf -d {prefix}_filter_{tool}_work",
                 stdout=f"filter_{tool}.stdout",
                 stderr=f"filter_{tool}.stderr"
             )
@@ -95,7 +95,7 @@ def main(args):
                 stderr=f"{tool}.stderr"
             )
             run_command(
-                f"isorefiner filter -t {n_thread} -i {prefix}_{tool}.gtf -r {trimmed_files_str} -g {genome_file} -o {prefix}_filtered_{tool}.gtf -d {prefix}_filter_${tool}_work",
+                f"isorefiner filter -t {n_thread} -i {prefix}_{tool}.gtf -r {trimmed_files_str} -g {genome_file} -o {prefix}_filtered_{tool}.gtf -d {prefix}_filter_{tool}_work",
                 stdout=f"filter_{tool}.stdout",
                 stderr=f"filter_{tool}.stderr"
             )
