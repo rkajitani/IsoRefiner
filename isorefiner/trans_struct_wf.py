@@ -66,6 +66,7 @@ def main(args):
         bam_files_str = " ".join(bam_files)
 
         # Main process
+        logger.info(f"isorefiner version: {get_version()}")
         logger.info(f"Starting isorefiner {args.command}")
         run_command(
             f"isorefiner trim -t {n_thread} -r {reads_files_str}",
