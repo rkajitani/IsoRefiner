@@ -11,7 +11,7 @@ pip install .
 ```
 We tested IsoRefiner on **Linux x86_64** environments. [Miniconda](https://docs.anaconda.com/miniconda/) is utilized in this procedure. After installation success, you can run the `isorefiner` command in a virtual environment named `isorefiner_env`.
 ### Dependency
-Required tools are listed in the [YAML file for conda](conda.yml). All of the required bioinfomatics tools can be installed through the [Bioconda](https://bioconda.github.io/) channel.
+Required tools are listed in the [YAML file for conda](conda.yml). All of the required bioinformatics tools can be installed through the [Bioconda](https://bioconda.github.io/) channel.
 
 ## Test
 ```bash
@@ -27,9 +27,10 @@ isorefiner trans_struct_wf -r reads.fastq -g genome.fasta -a ref_annot.gtf -t 32
 Above, IsoRefiner executes a workflow to refine transcript structures. Its subcommands are used internally. `reads.fastq` is a file of input long reads (FASTQ or FASTA, gzip allowed). Multiple files can be specified as space-delimited string (e.g., "reads_1.fastq reads_2.fastq"). `genome.fasta` and `ref_annot.gtf` are the reference genome and annotation, respectively. The number of threads (parallelization) is `32` in this command. Final result is `isorefiner_refined.gtf`.
 
 ## Workflow command usage
-The command below runs an end-to-end workflow, which uses [subcommands](#command-usage-for-each-step) internally. Although detailed parameters for internal steps can not be specified, it is convenient to run the workflow without preparing a complex shell-script.
+The command below runs an end-to-end workflow, which uses [subcommands](#command-usage-for-each-step) internally. Although detailed parameters for internal steps can not be specified, it is convenient to run the workflow without preparing a complex shell-script. Intermediate files are in the directory named `isorefiner_{command}_work` (default) or `-d argument`, and a log file named `log.txt` is created in the same directory.
+#
 ### trans_struct_wf
-Workflow of trascript-structure refinment.
+Workflow of transcript-structure refinement.
 ```
 isorefiner trans_struct_wf [-h] -r [READS ...] -g GENOME -a REF_GTF [-o OUT_GTF] [-d WORK_DIR] [-t THREADS]
 
@@ -47,10 +48,12 @@ options:
                         Working directory containing intermediate and log files (default: isorefiner_trans_struct_wf_work)
   -t THREADS, --threads THREADS
                         Number of threads (default: 1)
+
+output: isorefiner_refined.gtf (-o argument)
 ```
 
 ## Command usage for each step
-Each command below corresponds to a specific step used in the workflow. When specifing detailed parameters, it is suitable to execute these commands directly with options. The example step-by-step procedures are written in [step_by_step.sh](test/isorefiner/step_by_step.sh).
+Each command below corresponds to a specific step used in the workflow. When specifing detailed parameters, it is suitable to execute these commands directly with options. The example step-by-step procedures are written in [step_by_step.sh](test/isorefiner/step_by_step.sh). Intermediate files are in the directory named `isorefiner_{command}_work` (default) or `-d argument`, and a log file named `log.txt` is created in the same directory.
 ### trim
 Trim nanopore reads using [Porechop_ABI](https://github.com/bonsai-team/Porechop_ABI).
 ```
@@ -68,6 +71,10 @@ options:
                         Number of threads (default: 1)
   -p TOOL_OPTION, --tool_option TOOL_OPTION
                         Option for Porechomp_ABI (quoted string) (default: )
+
+output: isorefiner_trimmed.fastq ({-o argument}.fastq)
+  When multiple input files, isorefiner_trimmed_1.fastq isorefiner_trimmed_2.fastq ...
+  File extentions are inherited from the input files.
 ```
 
 ### map
@@ -91,6 +98,9 @@ options:
                         Option for minimap2 (quoted string) (default: -x splice -ub -k14 --secondary=no)
   -s SORT_OPTION, --sort_option SORT_OPTION
                         Option for samtools sort (quoted string) (default: -m 2G)
+
+output: isorefiner_mapped.bam ({-o argument}.bam)
+  When multiple input files, isorefiner_mapped_1.bam isorefiner_mapped_2.bam ...
 ```
 
 ### run_bambu
@@ -112,6 +122,8 @@ options:
                         Working directory containing intermediate and log files (default: isorefiner_bambu_work)
   -t THREADS, --threads THREADS
                         Number of threads (default: 1)
+
+output: isorefiner_bambu.gtf (-o argument)
 ```
 
 ### run_espresso
@@ -139,6 +151,8 @@ options:
                         Option for ESPRESSO_C.pl (quoted string) (default: )
   -q TOOL_Q_OPTION, --tool_q_option TOOL_Q_OPTION
                         Option for ESPRESSO_Q.pl (quoted string) (default: )
+
+output: isorefiner_espresso.gtf (-o argument)
 ```
 
 ### run_isoquant
@@ -164,6 +178,8 @@ options:
                         Option for isoquant (quoted string) (default: --complete_genedb --data_type nanopore --stranded none --transcript_quantification unique_only
                         --gene_quantification unique_only --matching_strategy default --splice_correction_strategy default_ont --model_construction_strategy default_ont
                         --no_secondary --check_canonical --count_exons)
+
+output: isorefiner_isoquant.gtf (-o argument)
 ```
 
 ### run_stringtie
@@ -187,6 +203,8 @@ options:
                         Number of threads (default: 1)
   -p TOOL_OPTION, --tool_option TOOL_OPTION
                         Option for StringTie (quoted string) (default: )
+
+output: isorefiner_stringtie.gtf (-o argument)
 ```
 
 ### run_rnabloom
@@ -218,6 +236,8 @@ options:
                         Max intron length for GMAP (bp) (default: 100000)
   --gmap_option GMAP_OPTION
                         Option for GMAP (quoted string) (default: -n 1 --no-chimeras)
+
+output: isorefiner_stringtie.gtf (-o argument)
 ```
 
 ### filter
@@ -247,6 +267,8 @@ options:
   --min_cov MIN_COV     Min coverage for filtering [0-1] (default: 0.95)
   --min_mean_depth MIN_MEAN_DEPTH
                         Min mean coverage depth for filtering (default: 1.0)
+
+output: isorefiner_filtered.gtf (-o argument)
 ```
 
 ### refine
@@ -277,4 +299,6 @@ options:
   --min_idt MIN_IDT     Min identity for read mapping [0-1] (default: 0.9)
   --intron_dist_th INTRON_DIST_TH
                         Intron distance threshold to exclude erroneous isoforms (default: 20)
+
+output: isorefiner_refined.gtf (-o argument)
 ```
