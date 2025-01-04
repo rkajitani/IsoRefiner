@@ -46,8 +46,7 @@ def main(args):
         else:
             for i, raw_reads_file in enumerate(raw_reads_files, start=1):
                 reads_ext = os.path.basename(raw_reads_file).split(".", 1)[1]
-                out_file = f"{out_prefix}_{i}.{reads_ext}"
-                out_files.append(reads_file)
+                out_files.append(f"{out_prefix}_{i}.{reads_ext}")
 
         # Main process
         logger.info(f"isorefiner version: {get_version()}")

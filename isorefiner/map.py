@@ -51,8 +51,7 @@ def main(args):
             out_files.append(f"{out_prefix}.bam")
         else:
             for i, raw_reads_file in enumerate(raw_reads_files, start=1):
-                out_file = f"{out_prefix}_{i}.bam"
-                out_files.append(reads_file)
+                out_files.append(f"{out_prefix}_{i}.bam")
 
         # Main process
         logger.info(f"isorefiner version: {get_version()}")
