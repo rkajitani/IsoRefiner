@@ -3,7 +3,7 @@
 import logging
 import os
 import sys
-from isorefiner.common import run_command
+from isorefiner.common import get_version, run_command
 
 logger = logging.getLogger(__name__)
 
