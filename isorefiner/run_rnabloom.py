@@ -6,7 +6,7 @@ import re
 import shutil
 import sys
 from collections import defaultdict
-from isorefiner.common import run_command, func_with_log
+from isorefiner.common import get_version, run_command, func_with_log
 
 logger = logging.getLogger(__name__)
 
@@ -53,6 +53,7 @@ def main(args):
             os.symlink(raw_reads_file, reads_file)
 
         # Main process
+        logger.info(f"isorefiner version: {get_version()}")
         logger.info(f"Starting isorefiner {args.command}")
         ## RNA-Bloom
         os.environ["JAVA_TOOL_OPTIONS"] = f"-Xmx{max_mem}"

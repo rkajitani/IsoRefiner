@@ -6,9 +6,8 @@ import os
 import re
 import sys
 from collections import defaultdict
-from operator import itemgetter
 import polars as pl
-from isorefiner.common import func_with_log, run_command, filter_bam
+from isorefiner.common import get_version, func_with_log, run_command, filter_bam
 
 logger = logging.getLogger(__name__)
 
@@ -68,6 +67,7 @@ def main(args):
             os.symlink(raw_reads_file, reads_file)
 
         # Main process start
+        logger.info(f"isorefiner version: {get_version()}")
         logger.info(f"Starting isorefiner {args.command}")
 
         ## Merge step

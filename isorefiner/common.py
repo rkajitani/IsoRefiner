@@ -1,12 +1,19 @@
 #!/usr/bin/env python
 
 import logging
+import pkg_resources
 import subprocess
 from functools import wraps
 import pysam
 
 
 logger = logging.getLogger(__name__)
+
+def get_version():
+    try:
+        return pkg_resources.get_distribution('isorefiner').version
+    except:
+        return "unknown"
 
 
 def func_with_log(f):

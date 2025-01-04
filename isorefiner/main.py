@@ -2,10 +2,12 @@
 
 import argparse
 from isorefiner import trans_struct_wf, filter, refine, trim, map, run_bambu, run_espresso, run_isoquant, run_stringtie, run_rnabloom
+from.common import get_version
 
 
 def main():
     parser = argparse.ArgumentParser(description="IsoRefiner, a tool to filter, merge, and refine transcript isoform structures.")
+    parser.add_argument('--version', action='version', version=get_version())
     subparsers = parser.add_subparsers(dest='command', required=True)
 
     # Transcript-structure refinment workflow subcomand

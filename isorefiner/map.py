@@ -3,7 +3,7 @@
 import logging
 import os
 import sys
-from isorefiner.common import func_with_log, run_command
+from isorefiner.common import get_version, run_command
 
 logger = logging.getLogger(__name__)
 
@@ -55,6 +55,7 @@ def main(args):
                 out_files.append(reads_file)
 
         # Main process
+        logger.info(f"isorefiner version: {get_version()}")
         logger.info(f"Starting isorefiner {args.command}")
         for i, (reads_file, out_file) in enumerate(zip(reads_files, out_files), start=1):
             run_command(

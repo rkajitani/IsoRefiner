@@ -4,7 +4,7 @@ import logging
 import os
 import shutil
 import sys
-from isorefiner.common import run_command, func_with_log
+from isorefiner.common import get_version, run_command, func_with_log
 
 logger = logging.getLogger(__name__)
 
@@ -55,6 +55,7 @@ def main(args):
         os.symlink(raw_ref_gtf, ref_gtf)
 
         # Main process
+        logger.info(f"isorefiner version: {get_version()}")
         logger.info(f"Starting isorefiner {args.command}")
         for bam_file in bam_files:
             if not (os.path.lexists(f"{bam_file}.bai") or os.path.lexists(f"{bam_file}.csi")):

@@ -5,7 +5,7 @@ import os
 import re
 import sys
 import polars as pl
-from isorefiner.common import func_with_log, run_command, filter_bam
+from isorefiner.common import get_version, func_with_log, run_command, filter_bam
 
 logger = logging.getLogger(__name__)
 
@@ -56,6 +56,7 @@ def main(args):
             os.symlink(raw_reads_file, reads_file)
 
         # Main process
+        logger.info(f"isorefiner version: {get_version()}")
         logger.info(f"Starting isorefiner {args.command}")
         fix_gtf_strand(raw_input_gtf, input_gtf)
         run_command(f"gffread -w asm.fa -g {genome_file} {input_gtf}")
