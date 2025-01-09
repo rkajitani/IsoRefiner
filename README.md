@@ -2,14 +2,19 @@
 IsoRefiner is a refinement tool to identify exon-intron structures of transcript (RNA) isoforms using long reads. It employs multiple transcript-identification tools, filters erroneous structures, merges results from the tools, and constructs the final dataset including novel transcript structures. Its inputs are long reads and reference data (genome and annotation), and it outputs a refined dataset (GTF file). We tested IsoRefiner using Oxford Nanopore cDNA reads, although it can potentially accept other types of reads such as PacBio. We have submitted a paper describing the IsoRefiner algorithm, and it is under review.
 
 ## Installation
+We tested IsoRefiner on **Linux x86_64** environments. After installation, you can execute `isorefiner` command.
+### Miniconda
 ```bash
-git clone https://github.com/rkajitani/IsoRefiner.git
-cd IsoRefiner
-conda env create -f conda.yml -n isorefiner_env
-conda activate isorefiner_env
-pip install .
+conda install -y -c conda-forge -c bioconda isorefiner
 ```
-We tested IsoRefiner on **Linux x86_64** environments. [Miniconda](https://docs.anaconda.com/miniconda/) is utilized in this procedure. After installation success, you can run the `isorefiner` command in a virtual environment named `isorefiner_env`.
+[Miniconda](https://docs.anaconda.com/miniconda/) is utilized. It may take a long time to solve dependencies, and you can [mamba](https://anaconda.org/conda-forge/mamba) instead of `conda` to reduce the time.  
+Alternatively, you can install it and create a virtual environment simultaneously:
+```bash
+conda create -y -c conda-forge -c bioconda -n isorefiner_env python=3.12.8 isorefiner
+conda activate isorefiner_env
+```
+`python=3.12.8` is added to reduce a time to solve dependencies.
+
 ### Dependency
 Required tools are listed in the [YAML file for conda](conda.yml). All of the required bioinformatics tools can be installed through the [Bioconda](https://bioconda.github.io/) channel.
 
