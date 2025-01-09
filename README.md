@@ -15,7 +15,17 @@ conda activate isorefiner_env
 ```
 `python=3.12.8` is added to reduce a time to solve dependencies.
 
-### Dependency
+### Docker
+```bash
+docker pull rkajitani/isorefiner
+# Start a container interactively,
+docker run -it -v $(pwd):/work -w /work rkajitani/isorefiner /bin/bash
+# or run isorefiner as a command
+docker run -v $(pwd):/work -w /work --rm rkajitani/isorefiner isorefiner ...
+```
+Binding of directories, `-v $(pwd):/work -w /work`, can be changed arbitrarily.
+
+## Dependency
 Required tools are listed in the [YAML file for conda](conda.yml). All of the required bioinformatics tools can be installed through the [Bioconda](https://bioconda.github.io/) channel.
 
 ## Test
