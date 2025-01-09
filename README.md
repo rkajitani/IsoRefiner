@@ -7,7 +7,7 @@ We tested IsoRefiner on **Linux x86_64** environments. After installation, you c
 ```bash
 conda install -y -c conda-forge -c bioconda isorefiner
 ```
-[Miniconda](https://docs.anaconda.com/miniconda/) is utilized. It may take a long time to solve dependencies, and you can [mamba](https://anaconda.org/conda-forge/mamba) instead of `conda` to reduce the time.  
+[Miniconda](https://docs.anaconda.com/miniconda/) is utilized. It may take a long time to solve dependencies, and you can use [mamba](https://anaconda.org/conda-forge/mamba) instead of `conda` to reduce the time.  
 Alternatively, you can install it and create a virtual environment simultaneously:
 ```bash
 conda create -y -c conda-forge -c bioconda -n isorefiner_env python=3.12.8 isorefiner
@@ -18,9 +18,13 @@ conda activate isorefiner_env
 ### Docker
 ```bash
 docker pull rkajitani/isorefiner
-# Start a container interactively,
+```
+Start a container interactively:
+```bash
 docker run -it -v $(pwd):/work -w /work rkajitani/isorefiner /bin/bash
-# or run isorefiner as a command
+```
+Or, run isorefiner as a command:
+```
 docker run -v $(pwd):/work -w /work --rm rkajitani/isorefiner isorefiner ...
 ```
 Binding of directories, `-v $(pwd):/work -w /work`, can be changed arbitrarily.
