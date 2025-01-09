@@ -3,7 +3,7 @@ IsoRefiner is a refinement tool to identify exon-intron structures of transcript
 
 ## Installation
 We tested IsoRefiner on **Linux x86_64** environments. After installation, you can execute `isorefiner` command.
-### Miniconda
+### Bioconda
 ```bash
 conda install -y -c conda-forge -c bioconda isorefiner
 ```
