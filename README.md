@@ -13,7 +13,7 @@ Alternatively, you can install it and create a virtual environment simultaneousl
 conda create -y -c conda-forge -c bioconda -n isorefiner_env python=3.12.8 isorefiner
 conda activate isorefiner_env
 ```
-`python=3.12.8` is added to reduce a time to solve dependencies.
+`python=3.12.8` is added to save time to solve dependencies.
 
 ### Docker
 ```bash
