@@ -16,5 +16,6 @@ dependencies:
   - gffread>=0.12.7
   - gmap>=2023.07.20
   - samtools>=1.17
+  - bedtools>=2.31.0
   - polars>=0.19.18
   - pysam>=0.22.0
