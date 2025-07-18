@@ -1,6 +1,9 @@
 # IsoRefiner
 IsoRefiner is a refinement tool to identify exon-intron structures of transcript (RNA) isoforms using long reads. It employs multiple transcript-identification tools, filters erroneous structures, merges results from the tools, and constructs the final dataset including novel transcript structures. Its inputs are long reads and reference data (genome and annotation), and it outputs a refined dataset (GTF file). We tested IsoRefiner using Oxford Nanopore cDNA reads, although it can potentially accept other types of reads such as PacBio. We have submitted a paper describing the IsoRefiner algorithm, and it is under review.
 
+## Publication
+Tanaka Y., Sunamura N., Kajitani R., Ikeguchi M., and Kunimoto R. Long-read RNA sequencing unveils a novel cryptic exon in MNAT1 along with its full-length transcript structure in TDP-43 proteinopathy. *Communications Biology* **8**, 1056 (2025). [https://doi.org/10.1038/s42003-025-08463-4](https://doi.org/10.1038/s42003-025-08463-4)
+
 ## Installation
 We tested IsoRefiner on **Linux x86_64** environments. After installation, you can execute `isorefiner` command.
 ### Bioconda
